@@ -74,6 +74,7 @@ const Navbar = () => {
           </div>
         </div>
       </section>
+      
       {/* Mobile nav links */}
         <section
           onClick={toggleMenu}
