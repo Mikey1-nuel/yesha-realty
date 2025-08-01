@@ -73,9 +73,9 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-
-        {/* Mobile nav links */}
-        <div
+      </section>
+      {/* Mobile nav links */}
+        <section
           onClick={toggleMenu}
           className={`mobile-nav-links ${menuOpen ? "open" : ""}`}
         >
@@ -99,8 +99,7 @@ const Navbar = () => {
               <Link href="/page/contact-us">Contact Us</Link>
             </li>
           </ul>
-        </div>
-      </section>
+        </section>
     </main>
   );
 };

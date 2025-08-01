@@ -115,6 +115,8 @@
 
   .mobile {
     display: flex;
+    position: fixed;
+    z-index: 9999;
     width: 100%;
   }
 
@@ -206,6 +208,8 @@
 
   .mobile {
     display: flex;
+    position: fixed;
+    z-index: 9999;
     width: 100%;
   }
 
@@ -297,10 +301,12 @@
 
   .mobile {
     display: flex;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
   }
 
   .mobile-nav-container {
-    position: sticky;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -308,7 +314,6 @@
     padding: 10px 40px;
     background: #fff;
     border-bottom: 1px solid rgba(19, 19, 19, 0.3);
-    z-index: 9999;
   }
 
   .logo-hamburger-container {

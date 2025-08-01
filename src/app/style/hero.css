@@ -106,7 +106,7 @@
 
 @media (max-width: 768px) {
   .hero-container {
-    height: 85vh;
+    height: 95vh;
   }
 
   .hero-container .hero-content h1 {
@@ -126,7 +126,7 @@
 
 @media (max-width: 640px) {
   .hero-container {
-    height: 85vh;
+    height: 95vh;
   }
 
   .hero-container .hero-content h1 {
@@ -146,7 +146,7 @@
 
 @media (max-width: 480px) {
   .hero-container {
-    height: 90vh;
+    height: 95vh;
   }
 
   .hero-container .hero-content h1 {
