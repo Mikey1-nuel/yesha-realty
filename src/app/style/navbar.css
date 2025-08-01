@@ -318,6 +318,11 @@
     width: 100%;
   }
 
+  .logo-hamburger-container a img {
+    width: auto;
+    height: auto;
+  }
+
   .hamburger {
     display: flex;
     flex-direction: column;

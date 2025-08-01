@@ -79,9 +79,6 @@ const Navbar = () => {
           onClick={toggleMenu}
           className={`mobile-nav-links ${menuOpen ? "open" : ""}`}
         >
-          <div className="nav-link-img">
-            <img src="/KS254_Batch1_FINAL_90_of_137_1000x1501.jpg" alt="" />
-          </div>
           <ul className="nav-links">
             <li>
               <Link href="/#about-us">About Us</Link>
