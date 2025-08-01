@@ -1,0 +1,96 @@
+.our-mission-container {
+  padding: 50px 70px;
+  background-color: #fff;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.our-mission-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.our-mission-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: Montserrat, sans-serif;
+  letter-spacing: 0.313rem;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.our-mission-content p {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: Montserrat, sans-serif;
+  color: #333;
+  text-align: center;
+  line-height: 2;
+}
+
+@media (max-width: 1330px) {
+  .our-mission-content h1 {
+    font-size: 2.7rem;
+    margin-bottom: 10px;
+  }
+
+  .our-mission-content p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .our-mission-container {
+    padding: 10px 40px;
+    height: 46vh;
+  }
+
+  .our-mission-content h1 {
+    font-size: 2.3rem;
+  }
+
+  .our-mission-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .our-mission-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .our-mission-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .our-mission-content h1 {
+    font-size: 2.1rem;
+  }
+
+  .our-mission-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .our-mission-container {
+    height: 38vh;
+  }
+
+  .our-mission-content h1 {
+    font-size: 2rem;
+  }
+
+  .our-mission-content p {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arapey&display=swap");
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background-image: url("/IMG-20250728-WA0001.jpg");
+  background-position: bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-container .hero-content h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 20px 0 0;
+  line-height: 1.1;
+  font-weight: 700;
+  font-family: Montserrat, sans-serif;
+  letter-spacing: 0.313rem;
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: 220px;
+}
+
+.hero-container .hero-content p {
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 400;
+  text-transform: capitalize;
+  margin-top: 10px;
+  letter-spacing: 0.2rem;
+  line-height: 1.3;
+}
+
+.hero-container .hero-content button {
+  border: none;
+  background-color: #1e4ba0;
+  color: #fff;
+  padding: 15px 25px;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px;
+  margin-top: 150px;
+  cursor: pointer;
+}
+
+@media (max-width: 1330px) {
+  .hero-container .hero-content h1 {
+    font-size: 2.5rem;
+    margin-top: 160px;
+  }
+
+  .hero-container .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .hero-container .hero-content button {
+    font-size: 18px;
+    margin-top: 110px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-container {
+    height: 100vh;
+  }
+
+  .hero-container .hero-content h1 {
+    font-size: 2.3rem;
+    margin-top: 160px;
+  }
+
+  .hero-container .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-container .hero-content button {
+    font-size: 17px;
+    margin-top: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    height: 85vh;
+  }
+
+  .hero-container .hero-content h1 {
+    font-size: 2.1rem;
+    margin-top: 160px;
+  }
+
+  .hero-container .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .hero-container .hero-content button {
+    font-size: 16px;
+    margin-top: 110px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-container {
+    height: 85vh;
+  }
+
+  .hero-container .hero-content h1 {
+    font-size: 2rem;
+    margin-top: 180px;
+  }
+
+  .hero-container .hero-content p {
+    font-size: 0.8rem;
+  }
+
+  .hero-container .hero-content button {
+    font-size: 15px;
+    margin-top: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-container {
+    height: 90vh;
+  }
+
+  .hero-container .hero-content h1 {
+    font-size: 2rem;
+    margin-top: 180px;
+  }
+
+  .hero-container .hero-content p {
+    font-size: 0.8rem;
+  }
+
+  .hero-container .hero-content button {
+    font-size: 15px;
+  }
+}
