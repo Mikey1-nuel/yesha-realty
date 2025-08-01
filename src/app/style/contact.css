@@ -135,18 +135,15 @@
 
 @media (max-width: 1024px) {
   .contact-us {
-    padding-top: 70px;
     padding: 150px 40px 70px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid green;
   }
 
   .contact-form {
     width: 100%;
-    border: 1px solid red;
   }
 
   .location-section {
@@ -173,8 +170,7 @@
 
 @media (max-width: 768px) {
   .contact-us {
-    padding-top: 70px;
-    padding: 70px 40px 70px 40px;
+    padding: 130px 40px 70px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -209,8 +205,7 @@
 
 @media (max-width: 640px) {
   .contact-us {
-    padding-top: 70px;
-    padding: 70px 40px 70px 40px;
+    padding: 120px 40px 70px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -245,8 +240,7 @@
 
 @media (max-width: 480px) {
   .contact-us {
-    padding-top: 70px;
-    padding: 70px 40px 70px 40px;
+    padding: 110px 40px 70px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
