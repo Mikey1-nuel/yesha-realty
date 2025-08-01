@@ -111,7 +111,7 @@ const OurStory = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <Image src="/IMG_4106.jpg" alt="ceo" width={300} height={250} />
+          <Image src="/ceo.jpg" alt="ceo" width={300} height={250} />
         </motion.div>
 
         <motion.div

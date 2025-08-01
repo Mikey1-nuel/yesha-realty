@@ -8,7 +8,7 @@ const ManagementTeam = () => {
   const teams = [
     {
       id: 1,
-      picture: "/IMG_4106 - Copy.jpg",
+      picture: "/ceo.jpg",
       name: "Samson .I. Oris",
       jobTitle: "Chief Executive Officer",
       experience:
