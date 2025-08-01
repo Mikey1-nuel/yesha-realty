@@ -83,6 +83,7 @@
   text-transform: uppercase;
   font-family: Montserrat, sans-serif;
   margin-top: 20px;
+  color: #333333;
 }
 
 @media (max-width: 1330px) {
