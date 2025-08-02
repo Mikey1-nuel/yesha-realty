@@ -1,6 +1,6 @@
 .project-container {
   padding: 120px 70px;
-  background-color: #f4f4f4;
+  background-color: #002f6c;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +26,7 @@
   font-family: Montserrat, sans-serif;
   letter-spacing: 0.313rem;
   text-transform: uppercase;
-  color: #333333;
+  color: #fff;
   margin-bottom: 40px;
 }
 
@@ -34,7 +34,7 @@
   font-size: 1rem;
   font-weight: 500;
   font-family: Montserrat, sans-serif;
-  color: #333333;
+  color: #fff;
   text-align: center;
   line-height: 2;
   margin-bottom: 40px;
@@ -45,8 +45,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #dde1e7;
-  border: 1px solid #fff;
+  background-color: #fff;
   border-radius: 0px 50px 0px 50px;
   padding: 15px 10px 20px 10px;
 }
