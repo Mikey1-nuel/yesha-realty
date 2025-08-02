@@ -28,19 +28,22 @@ const Footer = () => {
           <h4>Our Services</h4>
           <ul>
             <li>
-              <a href="/#project">Buy Land</a>
+              <a href="/#project">Real Estate Sales and Brokerage</a>
             </li>
             <li>
-              <a href="/#project">Buy Property</a>
+              <a href="/#project">Property Management</a>
             </li>
             <li>
-              <a href="/#consulting">Consulting</a>
+              <a href="/#consulting">Real Estate Development</a>
             </li>
             <li>
-              <a href="/#valuation">Valuation</a>
+              <a href="/#valuation">Architecture and Construction</a>
             </li>
             <li>
-              <a href="/#management">Management</a>
+              <a href="/#management">Legal and Documentation</a>
+            </li>
+            <li>
+              <a href="/#management">Consulting</a>
             </li>
           </ul>
         </div>
@@ -48,7 +51,7 @@ const Footer = () => {
         <div className="footer-section contact third">
           <h4>Contact Info</h4>
           <p>
-            <strong>Address:</strong> Suite D3, Sliverline Plaza, Plot 1543
+            <strong>Address:</strong> Suite D7 & D8 Sliverline Plaza, Plot 1543
             Cadastral Zone A03 Safana Close Garki 2, Abuja
           </p>
           <p>

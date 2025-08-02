@@ -12,7 +12,7 @@ const ManagementTeam = () => {
       name: "Samson .I. Oris",
       jobTitle: "Chief Executive Officer",
       experience:
-        "He is a highly skilled professional with a strong background in real estate with eight years of experience in the real estate industry. He has a deep understanding of the market dynamics and possesses excellent sales and negotiation skill.",
+        "He is a highly skilled professional with a strong background in real estate with ten years of experience in the real estate industry. He has a deep understanding of the market dynamics and possesses excellent sales and negotiation skill.",
       width: 700,
       height: 280,
     },
@@ -28,16 +28,6 @@ const ManagementTeam = () => {
     },
     {
       id: 3,
-      picture: "/Picture3.png",
-      name: "Guchaks .T. Emmanuel",
-      jobTitle: "Architect",
-      experience:
-        "A highly skilled and accomplished Architect with a passion for design with six years of professional experience. He has honed his skills in various aspects of Architecture, including conceptual design, space planning, construction documentation, and project management.",
-      width: 700,
-      height: 200,
-    },
-    {
-      id: 4,
       picture: "/Picture4.png",
       name: "Akwunwa Emmanuel",
       jobTitle: "Social Media Manager",

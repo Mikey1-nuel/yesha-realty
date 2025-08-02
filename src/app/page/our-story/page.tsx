@@ -122,11 +122,11 @@ const OurStory = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <h5>
-            Samson Ifeoluwa Oris <span>owner</span>
+            Samson Ifeoluwa Oris <span>CEO</span>
           </h5>
           <p>
             Mr. Samson Ifeoluwa Oris is a highly accomplished real estate
-            professional with a proven track record of success. With over 8
+            professional with a proven track record of success. With over 10
             years of experience in the industry, he has established himself as a
             skilled and knowledgeable expert, successfully closing numerous
             deals and selling properties worth over ₦500 million. His impressive

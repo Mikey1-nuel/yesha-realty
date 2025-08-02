@@ -1,19 +1,60 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+// import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import "../../style/hero.css";
 
+const heroBackgroundOptions = [
+    "/IMG-20250728-WA0001.jpg",
+    "/IMG-20250728-WA0000.jpg",
+    "/IMG-20250728-WA0002.jpg",
+]
+
 export default function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % heroBackgroundOptions.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main className="hero-container">
+<div className="hero-bg-layer">
+  {heroBackgroundOptions.map((src, i) => (
+    <motion.div
+      key={i}
+      className="hero-bg-image"
+      initial={false}
+      animate={{
+        opacity: index === i ? 1 : 0,
+        zIndex: index === i ? 1 : 0,
+      }}
+      transition={{ duration: 3, ease: "easeInOut" }}
+    >
+      <Image
+        src={src}
+        alt={`Hero Slide ${i}`}
+        fill
+        priority={index === i}
+        style={{ objectFit: "cover" }}
+      />
+    </motion.div>
+  ))}
+</div>
+
       <motion.div
         className="hero-content"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <h1>Soteria City by Yesha Realty</h1>
+        <h1>Yesha Reality</h1>
       </motion.div>
       <motion.div
         className="hero-content"

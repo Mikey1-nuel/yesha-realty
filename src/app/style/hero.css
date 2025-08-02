@@ -14,12 +14,29 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #333;
+}
 
-  background-image: url("/IMG-20250728-WA0001.jpg");
-  background-position: bottom;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
+.hero-bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1; /* Keeps background behind text */
+}
+
+.hero-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: opacity 1s ease-in-out;
+  will-change: opacity;
 }
 
 .hero-content {
@@ -27,11 +44,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 3;
 }
 
 .hero-container .hero-content h1 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin: 20px 0 0;
   line-height: 1.1;
   font-weight: 700;
@@ -70,7 +88,7 @@
 
 @media (max-width: 1330px) {
   .hero-container .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 3.2rem;
     margin-top: 160px;
   }
 
@@ -90,7 +108,7 @@
   }
 
   .hero-container .hero-content h1 {
-    font-size: 2.3rem;
+    font-size: 2.9rem;
     margin-top: 160px;
   }
 
@@ -110,7 +128,7 @@
   }
 
   .hero-container .hero-content h1 {
-    font-size: 2.1rem;
+    font-size: 2.8rem;
     margin-top: 160px;
   }
 
@@ -130,7 +148,7 @@
   }
 
   .hero-container .hero-content h1 {
-    font-size: 2rem;
+    font-size: 2.6rem;
     margin-top: 180px;
   }
 
@@ -150,7 +168,7 @@
   }
 
   .hero-container .hero-content h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-top: 180px;
   }
 

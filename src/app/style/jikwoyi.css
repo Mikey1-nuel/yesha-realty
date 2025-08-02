@@ -5,7 +5,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #fff;
+  background-color: #dde1e7;
 }
 
 .back {
@@ -62,7 +62,7 @@
 
 .land-list-header {
   padding: 40px 48px;
-  background-color: #fff;
+  background-color: #dde1e7;
 }
 
 .land-list-header h2 {
