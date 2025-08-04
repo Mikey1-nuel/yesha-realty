@@ -1,0 +1,52 @@
+.property-section_filter {
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.property-section_filter h3 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #ea580c;
+  font-family: Montserrat, sans-serif;
+  border-bottom: 1px solid #14305a;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+select {
+  width: 100%;
+  max-width: 250px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #1E4BA0;
+  box-shadow: 0 0 0 2px rgba(30, 75, 160, 0.2);
+}
+
+select option {
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: 'Montserrat', sans-serif;
+}

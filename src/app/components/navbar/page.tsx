@@ -20,10 +20,10 @@ const Navbar = () => {
         <div className="logo">
           <Link href="/">
             <Image
-              src="/SAVE_20250727_212827-removebg-preview.png"
+              src="/ChatGPT Image Aug 3, 2025, 05_25_19 PM.png"
               alt="Yesha Reality Logo"
-              width={60}
-              height={60}
+              width={70}
+              height={70}
             />
           </Link>
         </div>
@@ -37,7 +37,7 @@ const Navbar = () => {
               <Link href="/#our-mission">Our Mission</Link>
             </li>
             <li className="desk-nav-item">
-              <Link href="/#project">Project</Link>
+              <Link href="/page/jikwoyi">Project</Link>
             </li>
             <li className="desk-nav-item">
               <Link href="/#meet-the-team">Meet The Team</Link>
@@ -57,10 +57,10 @@ const Navbar = () => {
           <div className="logo-hamburger-container">
             <Link onClick={handleLogoClick} href="/">
               <Image
-                src="/SAVE_20250727_212827-removebg-preview.png"
+                src="/ChatGPT Image Aug 3, 2025, 05_25_19 PM.png"
                 alt="Yesha Reality Logo"
-                width={60}
-                height={60}
+                width={80}
+                height={80}
               />
             </Link>
 
@@ -88,7 +88,7 @@ const Navbar = () => {
               <Link href="/#our-mission">Our Mission</Link>
             </li>
             <li>
-              <Link href="/#project">Project</Link>
+              <Link href="/page/jikwoyi">Project</Link>
             </li>
             <li>
               <Link href="/#meet-the-team">Meet The Team</Link>

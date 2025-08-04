@@ -47,6 +47,7 @@ export default function Hero() {
     </motion.div>
   ))}
 </div>
+<div className="overlay"></div>
 
       <motion.div
         className="hero-content"
@@ -54,7 +55,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <h1>Yesha Reality</h1>
+        <h1>Yesha <span>Reality</span></h1>
       </motion.div>
       <motion.div
         className="hero-content"
@@ -65,8 +66,7 @@ export default function Hero() {
       >
         <p>
           Secure your future with verified plots in prime locations. <br />
-          Flexible payments, trusted service, and long-term value — all within
-          reach. <br /> Let your journey to homeownership begin today.
+          Let your journey to homeownership begin today.
         </p>
       </motion.div>
       <motion.div
@@ -83,5 +83,3 @@ export default function Hero() {
     </main>
   );
 }
-
-//  Hero;
