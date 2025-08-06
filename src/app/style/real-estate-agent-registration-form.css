@@ -36,6 +36,11 @@
     padding: 10px 20px;
     border-radius: 5px;
     color: #333;
+    outline: none;
+}
+
+.form .input:focus {
+    outline: 1px solid #0056b3;
 }
 
 .label {
@@ -67,6 +72,12 @@
     font-family: Montserrat, sans-serif;
     font-weight: 400;
     color: #333;
+    outline: 1px solid #0056b3;
+    outline: none;
+}
+
+.label-select-cont .select:focus {
+    outline: 1px solid #0056b3;
 }
 
 .custom-file-upload {
@@ -78,8 +89,9 @@
 }
 
 .custom-file-upload span {
-    border: 1px solid blue;
+    border: 1px solid #ccc;
     padding: 10px 20px;
+    border-radius: 5px;
 }
 
 .upload-button {
