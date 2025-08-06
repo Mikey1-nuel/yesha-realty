@@ -91,10 +91,10 @@ const Navbar = () => {
               <Link href="/page/properties">Properties</Link>
             </li>
             <li>
-              <Link href="/page/real-estate-agent-registration">Become An Agent</Link>
+              <Link href="/page/our-story">Our Story</Link>
             </li>
             <li>
-              <Link href="/page/our-story">Our Story</Link>
+              <Link href="/page/real-estate-agent-registration">Become An Agent</Link>
             </li>
             <li>
               <Link href="/page/contact-us">Contact Us</Link>
