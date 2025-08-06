@@ -81,7 +81,7 @@ const handleChange = (e: { target: { name: string; value: string } }) => {
   onChange={handleChange}
   label="Estate/property"
   options={[
-    "Soteria City, Jikwoyi",
+    "Soteria City, Jikoyi",
     "Soteria City Phase II, Kuje",
   ]}
 />
@@ -103,7 +103,7 @@ const handleChange = (e: { target: { name: string; value: string } }) => {
   value={filters.bedrooms}
   onChange={handleChange}
   label="Bedroom"
-  options={["3 Bedroom", "4 Bedroom", "5 Bedroom"]}
+  options={["2 Bedroom", "3 Bedroom", "4 Bedroom", "5 Bedroom"]}
 />
 
 <CustomDropdown
@@ -116,8 +116,9 @@ const handleChange = (e: { target: { name: string; value: string } }) => {
     "Fully Detached Bungalow",
     "Semi Detached Duplex",
     "Fully Detached Duplex",
-    "Terrace Duplex",
-    "Terrace Duplex with BQ"
+    "Fully Terrace Duplex",
+    "Terrace Duplex with BQ",
+    "Penthouse"
   ]}
 />
 

@@ -37,13 +37,13 @@ const Navbar = () => {
               <Link href="/#our-mission">Our Mission</Link>
             </li>
             <li className="desk-nav-item">
-              <Link href="/page/jikwoyi">Project</Link>
-            </li>
-            <li className="desk-nav-item">
-              <Link href="/#meet-the-team">Meet The Team</Link>
+              <Link href="/page/properties">Properties</Link>
             </li>
             <li className="desk-nav-item">
               <Link href="/page/our-story">Our Story</Link>
+            </li>
+            <li className="desk-nav-item">
+              <Link href="/page/real-estate-agent-registration">Become An Agent</Link>
             </li>
             <li className="desk-nav-item">
               <Link href="/page/contact-us">Contact Us</Link>
@@ -88,10 +88,10 @@ const Navbar = () => {
               <Link href="/#our-mission">Our Mission</Link>
             </li>
             <li>
-              <Link href="/page/jikwoyi">Project</Link>
+              <Link href="/page/properties">Properties</Link>
             </li>
             <li>
-              <Link href="/#meet-the-team">Meet The Team</Link>
+              <Link href="/page/real-estate-agent-registration">Become An Agent</Link>
             </li>
             <li>
               <Link href="/page/our-story">Our Story</Link>

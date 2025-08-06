@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import CustomDropdown from "./custom-dropdown";
+import "../style/custom-dropdown.css";
 import "../style/mobile-property-filter.css";
 import { X } from "lucide-react";
 
@@ -71,7 +72,7 @@ const MobilePropertyFilter: React.FC<Props> = ({ onFilterChange }) => {
   };
 
   return (
-    <div className="property-section_filter">
+    <div className="mobile-property-section_filter">
       <h4>Filter Property</h4>
       <button className="mobile-filter-btn" onClick={() => setMenuOpen(true)}>
         Filters
@@ -82,7 +83,7 @@ const MobilePropertyFilter: React.FC<Props> = ({ onFilterChange }) => {
           <div className="mobile-filter-header">
             <h4>Filter Options</h4>
             <button onClick={() => setMenuOpen(false)}>
-              <X size={40} />
+              <X size={40} color="#333" />
             </button>
           </div>
 
@@ -92,7 +93,7 @@ const MobilePropertyFilter: React.FC<Props> = ({ onFilterChange }) => {
               value={filters.estate}
               onChange={handleChange}
               label="Estate/property"
-              options={["Soteria City, Jikwoyi", "Soteria City Phase II, Kuje"]}
+              options={["Soteria City, Jikoyi", "Soteria City Phase II, Kuje"]}
             />
 
             <CustomDropdown

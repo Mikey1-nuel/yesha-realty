@@ -49,9 +49,9 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
 
         <div className="drop">
         {dropUp ? (
-          <ChevronUp className="dropdown-icon" />
+          <ChevronUp className="dropdown-icon" color="#333" />
         ) : (
-          <ChevronDown className="dropdown-icon" />
+          <ChevronDown className="dropdown-icon" color="#333" />
         )}
         </div>
       </button>

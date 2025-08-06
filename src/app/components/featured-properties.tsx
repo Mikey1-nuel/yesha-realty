@@ -8,7 +8,7 @@ const FeaturedProperties = ({ properties }: { properties: any[] }) => {
   if (featured.length === 0) {
     return (
       <section className="featured-section">
-        <h2>Editor's Picks</h2>
+        <h2>Featured Property</h2>
         <p>No featured properties available at the moment.</p>
       </section>
     );
@@ -17,6 +17,7 @@ const FeaturedProperties = ({ properties }: { properties: any[] }) => {
   return (
     <section className="featured-section">
       <h2>Featured Property</h2>
+      <p className="featured-para">Premium listings selected for the best experience</p>
       <div className="property-grid">
         {featured.map((property, index) => (
           <motion.div

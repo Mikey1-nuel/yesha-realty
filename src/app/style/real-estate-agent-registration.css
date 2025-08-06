@@ -1,0 +1,253 @@
+.real-estate-hero {
+    padding: 90px 0 0 0;
+    display: flex;
+}
+
+.real-estate-text {
+    background-color: rgb(0, 23, 81);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 160px;
+    gap: 20px;
+}
+
+.real-estate-text h1 {
+    font-size: 3rem;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.real-estate-text p {
+    font-size: 1rem;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+}
+
+.real-estate-text a button {
+    font-size: 1rem;
+    background-color: #267df0;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.real-estate-text a button:hover {
+    background-color: #002f6c;
+}
+
+.real-estate-agent {
+    overflow: hidden;
+        width: 1800px;
+    height: 500px;
+}
+
+.real-estate-agent img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.hello {
+    background-color: #fff;
+}
+
+@media (max-width: 1330px) {
+    .real-estate-text {
+    background-color: rgb(0, 23, 81);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 160px;
+    gap: 20px;
+}
+
+.real-estate-text h1 {
+    font-size: 2.8rem;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.real-estate-text p {
+    font-size: .9rem;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+}
+
+.real-estate-text a button {
+    font-size: 1rem;
+    background-color: #267df0;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    padding: 15px 30px;
+    border-radius: 5px;
+}
+
+.real-estate-text a button:hover {
+    background-color: #002f6c;
+}
+
+.real-estate-agent {
+    overflow: hidden;
+        width: 1600px;
+    height: 550px;
+}
+
+.real-estate-agent img {
+    width: 500px;
+    height: 550px;
+    object-fit: cover;
+    object-position: top;
+}
+}
+
+@media (max-width: 1024px) {
+    .real-estate-text {
+    background-color: rgb(0, 23, 81);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 40px 30px 70px;
+    gap: 20px;
+}
+
+.real-estate-text h1 {
+    font-size: 2.8rem;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.real-estate-text p {
+    font-size: .9rem;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+}
+
+.real-estate-text a button {
+    font-size: 1rem;
+    background-color: #267df0;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    padding: 15px 30px;
+    border-radius: 5px;
+}
+
+.real-estate-text a button:hover {
+    background-color: #002f6c;
+}
+
+.real-estate-agent {
+    overflow: hidden;
+        width: 2800px;
+    height: 500;
+}
+
+.real-estate-agent img {
+    width: 500px;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+}
+
+@media (max-width: 768px) {
+    .real-estate-hero {
+    padding: 90px 0 0 0;
+    display: flex;
+    height: 62vh;
+    margin-bottom: 40px;
+}
+
+    .real-estate-text {
+    background-color: rgb(0, 23, 81);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 30px 30px 50px;
+    gap: 20px;
+    height: 62vh;
+}
+
+.real-estate-text h1 {
+    font-size: 36px;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.real-estate-text p {
+    font-size: .9rem;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+}
+
+.real-estate-text a button {
+    font-size: 1rem;
+    background-color: #267df0;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    padding: 15px 30px;
+    border-radius: 5px;
+}
+
+.real-estate-text a button:hover {
+    background-color: #002f6c;
+}
+
+.real-estate-agent {
+    overflow: hidden;
+        width: 1000px;
+    max-height: 62vh;
+}
+
+.real-estate-agent img {
+    width: 500px;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+}
+
+@media (max-width: 480px) {
+    .real-estate-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+    }
+
+    .real-estate-text h1, p {
+        text-align: center;
+    }
+
+    .real-estate-text a button {
+        width: 100%;
+    }
+
+    .real-estate-agent {
+        display: none;
+    }
+}

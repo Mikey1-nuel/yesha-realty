@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import "../style/jikwoyi.css";
+import "../style/properties.css";
 
 type Property = {
   id: number;
   estate: string;
   size: string;
   bedrooms: number;
+  image: string;
   houseType: string;
   price: string;
   location: string;
@@ -27,13 +28,30 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
     <div className="land-card" key={property.id}>
       <div className="img-et-attribute">
         <div className="land-img">
-          <Image
-            src="/IMG-20250728-WA0000.jpg"
-            alt="Property"
-            width={350}
-            height={200}
-            style={{ objectFit: "cover" }}
-          />
+{property.image ? (
+  <Image
+    src={property.image}
+    alt="Property"
+    width={400}
+    height={210}
+    style={{ objectFit: "cover" }}
+  />
+) : (
+  <div
+    style={{
+      width: 350,
+      height: 200,
+      backgroundColor: "#ccc",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: "0.9rem",
+      color: "#333",
+    }}
+  >
+    No Image Available
+  </div>
+)}
         </div>
 
         <div className="attribute">
