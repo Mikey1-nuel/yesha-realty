@@ -14,7 +14,7 @@ const ContactUs = () => {
         <div className="location-section">
           <div className="map-container">
             <iframe
-              src="https://www.google.com/maps?q=Suite%20D3,%20Sliverline%20Plaza,%20Plot%201543%20Cadastral%20Zone%20A03%20Safana%20Close%20Garki%202,%20Abuja&output=embed"
+              src="https://www.google.com/maps?q=Suite%20D3,%20Silverline%20Plaza,%20Plot%201543,%20Cadastral%20Zone%20A03,%20Safana%20Close,%20Garki%202,%20Abuja&output=embed"
               width="100%"
               height="350"
               style={{ border: 0 }}
@@ -25,7 +25,7 @@ const ContactUs = () => {
           </div>
 
           <a
-            href="https://www.google.com/maps?q=Shariff+Plaza,+24+Aminu+Kano+Crescent,+Wuse+2,+Abuja,+Nigeria+904101"
+            href="https://www.google.com/maps?q=Suite%20D3,%20Silverline%20Plaza,%20Plot%201543,%20Cadastral%20Zone%20A03,%20Safana%20Close,%20Garki%202,%20Abuja"
             target="_blank"
             rel="noopener noreferrer"
             className="get-directions"

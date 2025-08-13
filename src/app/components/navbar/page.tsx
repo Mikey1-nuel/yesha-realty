@@ -43,7 +43,7 @@ const Navbar = () => {
               <Link href="/page/our-story">Our Story</Link>
             </li>
             <li className="desk-nav-item">
-              <Link href="/page/real-estate-agent-registration">Become An Agent</Link>
+              <Link href="/page/real-estate-agent-registration">Register As Realtor</Link>
             </li>
             <li className="desk-nav-item">
               <Link href="/page/contact-us">Contact Us</Link>
@@ -94,7 +94,7 @@ const Navbar = () => {
               <Link href="/page/our-story">Our Story</Link>
             </li>
             <li>
-              <Link href="/page/real-estate-agent-registration">Become An Agent</Link>
+              <Link href="/page/real-estate-agent-registration">Register As Realtor</Link>
             </li>
             <li>
               <Link href="/page/contact-us">Contact Us</Link>
