@@ -155,3 +155,4 @@ const PropertyFilter: React.FC<Props> = ({ onFilterChange }) => {
 };
 
 export default PropertyFilter;
+
