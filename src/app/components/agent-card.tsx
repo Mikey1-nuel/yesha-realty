@@ -25,7 +25,7 @@ const AgentCard = ({
 
   return (
     <div className="agent-card" key={agent.id}>
-      <div className="img-et-attribute">
+      <div className="image-et-attribute">
         <div className="agent-img">
           {agent.image ? (
             <Image
@@ -55,7 +55,7 @@ const AgentCard = ({
       </div>
 
       <div className="agent-info">
-        <div className="name-et-agency">
+        <div className="agent-name-et-agency">
           <h3>
             {agent.fullName}
           </h3>
