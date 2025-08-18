@@ -43,7 +43,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   }
 
   try {
-    const res = await fetch("http://localhost:8000/properties", {
+    const res = await fetch("https://yesha-reality-backend-staging.up.railway.app/properties", {
       method: "POST",
       body: data,
     });

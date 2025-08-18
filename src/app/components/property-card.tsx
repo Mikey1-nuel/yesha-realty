@@ -27,7 +27,7 @@ const PropertyCard = ({
         <div className="land-img">
           {property.image ? (
             <Image
-              src={`http://localhost:8000${property.image}`}
+              src={`https://yesha-reality-backend-staging.up.railway.app${property.image}`}
               alt="Property"
               width={400}
               height={210}

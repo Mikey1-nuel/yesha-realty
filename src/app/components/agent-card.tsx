@@ -29,7 +29,7 @@ const AgentCard = ({
         <div className="agent-img">
           {agent.image ? (
             <Image
-              src={`http://localhost:8000${agent.image}`}
+              src={`https://yesha-reality-backend-staging.up.railway.app${agent.image}`}
               alt="agent"
               width={400}
               height={210}

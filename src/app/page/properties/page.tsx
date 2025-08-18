@@ -46,9 +46,12 @@ const Properties = () => {
 const handleDeleteProperty = async (id: number) => {
   setDeletingId(id);
   try {
-    const res = await fetch(`https://yesha-reality-backend-staging.up.railway.app/properties/${id}`, {
-      method: "DELETE",
-    });
+    const res = await fetch(
+      `https://yesha-reality-backend-staging.up.railway.app/properties/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
 
     if (!res.ok) {
       const errorText = await res.text();
@@ -58,10 +61,8 @@ const handleDeleteProperty = async (id: number) => {
 
     console.log("Deleted property:", await res.json());
 
-    const updatedRes = await fetch("https://yesha-reality-backend-staging.up.railway.app/properties");
-    const updatedData = await updatedRes.json();
-    setAvailableproperties(updatedData);
-    setFiltered(updatedData);
+    // ✅ Update state locally instead of re-fetching
+    setAvailableproperties((prev) => prev.filter((p) => p.id !== id));
   } catch (err) {
     console.error("Error deleting property:", err);
   } finally {
@@ -151,7 +152,7 @@ const handleDeleteProperty = async (id: number) => {
                     <div className="land-img">
                       {property.image && (
                         <Image
-                          src={`http://localhost:8000${property.image}`}
+                          src={`https://yesha-reality-backend-staging.up.railway.app${property.image}`}
                           alt=""
                           width={350}
                           height={50}
