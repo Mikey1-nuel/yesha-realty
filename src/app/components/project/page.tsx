@@ -1,10 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { Property } from "@/types/property";
 import "../../style/project.css";
 import FeaturedProperties from "../featured-properties";
 
+type PropertyCardProps = {
+  property: Property;
+  onDelete: (id: number) => void;
+  deletingId: number | null;
+};
+
 const Project = () => {
-  const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState<Property[]>([]);
+  const [deletingId, setDeletingId] = useState<number | null>(null);
 
   useEffect(() => {
     fetch("https://yesha-reality-backend-staging.up.railway.app/properties")
@@ -14,6 +22,33 @@ const Project = () => {
       })
       .catch((err) => console.error("Error fetching properties:", err));
   }, []);
+
+  const handleDeleteProperty = async (id: number) => {
+  setDeletingId(id);
+  try {
+    const res = await fetch(
+      `https://yesha-reality-backend-staging.up.railway.app/properties/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      console.error("Server error:", errorText);
+      throw new Error("Failed to delete property");
+    }
+
+    console.log("Deleted property:", await res.json());
+
+    // ✅ Update state locally instead of re-fetching
+    setProperties((prev) => prev.filter((p) => p.id !== id));
+  } catch (err) {
+    console.error("Error deleting property:", err);
+  } finally {
+    setDeletingId(null);
+  }
+};
 
 
   return (
@@ -30,7 +65,11 @@ const Project = () => {
           luxury and smart living, this estate is poised to set a new standard
           for urban development.
         </p>
-          <FeaturedProperties properties={properties} />
+        <FeaturedProperties
+          properties={properties}
+          onDelete={handleDeleteProperty}
+          deletingId={deletingId}
+        />
       </div>
     </main>
   );
