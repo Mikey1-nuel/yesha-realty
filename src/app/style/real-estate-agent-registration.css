@@ -60,6 +60,142 @@
     background-color: #fff;
 }
 
+.agents-container {
+    padding: 70px 70px;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.agents-container h1 {
+      font-weight: 700;
+  font-family: Montserrat, sans-serif;
+  letter-spacing: 0.313rem;
+  text-transform: uppercase;
+  color: #333333;
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.mobile-propty-container {
+display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.agent-card {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  border: 1px solid rgb(209, 209, 213);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px 0px;
+  transition: all 0.3s ease;
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+.img-et-attribute {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.land-img {
+  max-width: 150px;
+  max-height: 150px;
+  z-index: 1;
+}
+
+.land-img img {
+  max-width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.agent-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.name-et-agency {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.name-et-agency h3 {
+    font-size: 20px;
+  color: rgb(42, 42, 51);
+  text-transform: capitalize;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.name-et-agency span {
+    color: #333333;
+  margin: 0;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+}
+
+.agent-info p {
+    color: #333333;
+  margin: 0;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+}
+
+.star-rating {
+    display: flex;
+}
+
+.not-found {
+  text-align: center;
+  width: 100%;
+  padding: 10px 30px;
+}
+
+.not-found p {
+  font-size: 1.125rem;
+  color: red;
+  text-transform: capitalize;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+}
+
+.not-found span {
+  font-size: 0.9rem;
+  color: #333;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+}
+
+.full-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 @media (max-width: 1330px) {
     .real-estate-text {
     background-color: rgb(0, 23, 81);

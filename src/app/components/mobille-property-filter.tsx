@@ -1,18 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CustomDropdown from "./custom-dropdown";
+import { Property } from "@/types/property";
+import { Filters } from "@/types/filters";
 import "../style/custom-dropdown.css";
 import "../style/mobile-property-filter.css";
 import { X } from "lucide-react";
 
-// Define the filter structure
-type Filters = {
-  estate: string;
-  size: string;
-  bedrooms: string;
-  houseType: string;
-  price: string;
-  location: string;
+type PropertyCardProps = {
+  property: Property;
 };
 
 type Props = {
@@ -20,22 +16,13 @@ type Props = {
 };
 
 const MobilePropertyFilter: React.FC<Props> = ({ onFilterChange }) => {
-  const [filters, setFilters] = useState<Filters>({
-    estate: "",
-    size: "",
-    bedrooms: "",
-    houseType: "",
-    price: "",
-    location: "",
-  });
-
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleClearFilters = () => {
     const resetFilters: Filters = {
       estate: "",
-      size: "",
-      bedrooms: "",
+      landSize: "",
+      bedroom: "",
       houseType: "",
       price: "",
       location: "",
@@ -45,15 +32,58 @@ const MobilePropertyFilter: React.FC<Props> = ({ onFilterChange }) => {
     setMenuOpen(false);
   };
 
+  const [listOfEstate, setListOfEstate] = useState<string[]>([]);
+  const [listOfLandSize, setListOfLandSize] = useState<string[]>([]);
+  const [listOfBedroom, setListOfBedroom] = useState<string[]>([]);
+  const [listOfHouseType, setListOfHouseType] = useState<string[]>([]);
+  const [listOfPrice, setListOfPrice] = useState<string[]>([]);
+  const [listOfLocation, setListOfLocation] = useState<string[]>([]);
+  useEffect(() => {
+    fetch("https://yesha-reality-backend-staging.up.railway.app/properties")
+      .then((res) => res.json())
+      .then((data: Property[]) => {
+        setListOfEstate([...new Set(data.map((item) => item.estate))]);
+        setListOfLandSize([
+          ...new Set(data.map((item) => item.landSize.toString())),
+        ]);
+        setListOfBedroom([
+          ...new Set(data.map((item) => `${item.bedroom} Bedroom`)),
+        ]);
+        setListOfHouseType([...new Set(data.map((item) => item.houseType))]);
+        setListOfPrice([...new Set(data.map((item) => item.price))]);
+        setListOfLocation([...new Set(data.map((item) => item.location))]);
+      })
+      .catch((err) => console.error("Error fetching properties:", err));
+  }, []);
+
+  const sortedLandSize = [...listOfLandSize].sort(
+    (a, b) => Number(a) - Number(b)
+  );
+
+  const [filters, setFilters] = useState<Filters>({
+    estate: "",
+    landSize: "",
+    bedroom: "",
+    houseType: "",
+    price: "",
+    location: "",
+  });
+
   const normalizeValue = (name: string, value: string) => {
     if (name === "price") {
       if (value.includes("Below")) return "5";
       if (value.includes("₦5M - ₦8M")) return "8";
       if (value.includes("Above")) return "10";
     }
-    if (name === "bedrooms") {
-      return value.split(" ")[0];
+
+    if (name === "bedroom") {
+      return value.split(" ")[0]; // "4 Bedroom" → "4"
     }
+
+    if (name === "landSize") {
+      return Number(value.split(" ")[0]); // "500 sqm" → 500
+    }
+
     return value;
   };
 
@@ -64,7 +94,10 @@ const MobilePropertyFilter: React.FC<Props> = ({ onFilterChange }) => {
       [name]: normalizeValue(name, value),
     };
     setFilters(updated);
+    onFilterChange(updated);
   };
+
+  console.log(filters);
 
   const handleSearch = () => {
     onFilterChange(filters);
@@ -93,23 +126,23 @@ const MobilePropertyFilter: React.FC<Props> = ({ onFilterChange }) => {
               value={filters.estate}
               onChange={handleChange}
               label="Estate/property"
-              options={["Soteria City, Jikoyi", "Soteria City Phase II, Kuje"]}
+              options={listOfEstate}
             />
 
             <CustomDropdown
-              name="size"
-              value={filters.size}
+              name="landSize"
+              value={filters.landSize}
               onChange={handleChange}
               label="Plot Size"
-              options={["250sqm", "300sqm", "350sqm", "400sqm", "450sqm", "500sqm"]}
+              options={sortedLandSize}
             />
 
             <CustomDropdown
-              name="bedrooms"
-              value={filters.bedrooms}
+              name="bedroom"
+              value={filters.bedroom}
               onChange={handleChange}
               label="Bedroom"
-              options={["3 Bedroom", "4 Bedroom", "5 Bedroom"]}
+              options={listOfBedroom}
             />
 
             <CustomDropdown
@@ -117,14 +150,7 @@ const MobilePropertyFilter: React.FC<Props> = ({ onFilterChange }) => {
               value={filters.houseType}
               onChange={handleChange}
               label="Structure"
-              options={[
-                "Bungalow",
-                "Fully Detached Bungalow",
-                "Semi Detached Duplex",
-                "Fully Detached Duplex",
-                "Terrace Duplex",
-                "Terrace Duplex with BQ",
-              ]}
+              options={listOfHouseType}
             />
 
             <CustomDropdown
@@ -140,7 +166,7 @@ const MobilePropertyFilter: React.FC<Props> = ({ onFilterChange }) => {
               value={filters.location}
               onChange={handleChange}
               label="Location"
-              options={["Abuja"]}
+              options={listOfLocation}
             />
           </div>
 

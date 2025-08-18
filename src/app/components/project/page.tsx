@@ -1,143 +1,20 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../style/project.css";
 import FeaturedProperties from "../featured-properties";
 
 const Project = () => {
-  const projects = [
-  {
-    id: 1,
-    estate: "Soteria City, Jikoyi",
-    size: "250sqm",
-    bedrooms: 2,
-    image: "/Fully-Detached-Bungalow.jpeg",
-    houseType: "Fully Detached Bungalow",
-    price: "₦5,000,000",
-    location: "Abuja",
-    views: 25,
-    featured: false,
-  },
-  {
-    id: 2,
-    estate: "Soteria City, Jikoyi",
-    size: "350sqm",
-    bedrooms: 3,
-    image: "/Fully-Detached-Bungalow.jpeg",
-    houseType: "Fully Detached Bungalow",
-    price: "₦6,000,000",
-    location: "Abuja",
-    views: 58,
-    featured: false,
-  },
-  {
-    id: 3,
-    estate: "Soteria City, Jikoyi",
-    size: "400sqm",
-    bedrooms: 4,
-    image: "/Fully-Detached-Bungalow.jpeg",
-    houseType: "Fully Detached Bungalow",
-    price: "₦8,000,000",
-    location: "Abuja",
-    views: 65,
-    featured: false,
-  },
-  {
-    id: 4,
-    estate: "Soteria City, Jikoyi",
-    size: "450sqm",
-    bedrooms: 4,
-    image: "/Fully-Detached-Bungalow.jpeg",
-    houseType: "Fully Detached Bungalow",
-    price: "₦10,000,000",
-    location: "Abuja",
-    views: 75,
-    featured: true,
-  },
-  {
-      id: 5,
-      estate: "Soteria City Phase II, Kuje",
-    size: "150sqm",
-    bedrooms: 2,
-    image: "/Fully-Terrace-Duplex.jpeg",
-    houseType: "Terrace Duplex",
-    price: "₦2,000,000",
-    location: "Abuja",
-    views: 45,
-    featured: true,
-  },
-  {
-    id: 6,
-    estate: "Soteria City Phase II, Kuje",
-    size: "250sqm",
-    bedrooms: 3,
-    image: "/Fully-Terrace-Duplex.jpeg",
-    houseType: "Terrace Duplex",
-    price: "₦3,500,000",
-    location: "Abuja",
-    views: 60,
-    featured: true,
-  },
-  {
-    id: 7,
-    estate: "Soteria City Phase II, Kuje",
-    size: "350sqm",
-    bedrooms: 3,
-    image: "/Fully-Detached-Bungalow.jpeg",
-    houseType: "Fully Detached Bungalow",
-    price: "₦4,500,000",
-    location: "Abuja",
-    views: 55,
-    featured: false,
-  },
-  {
-    id: 8,
-    estate: "Soteria City Phase II, Kuje",
-    size: "400sqm",
-    bedrooms: 4,
-    image: "/Fully-Detached-Bungalow.jpeg",
-    houseType: "Fully Detached Bungalow",
-    price: "₦5,500,000",
-    location: "Abuja",
-    views: 70,
-    featured: true,
-  },
-  {
-    id: 9,
-    estate: "Soteria City Phase II, Kuje",
-    size: "500sqm",
-    bedrooms: 4,
-    image: "/Fully-Detached-Duplex.jpeg",
-    houseType: "Duplex with BQ",
-    price: "₦7,000,000",
-    location: "Abuja",
-    views: 80,
-    featured: true,
-  },
-  {
-    id: 10,
-    estate: "Soteria City Phase II, Kuje",
-    size: "500sqm",
-    bedrooms: 3,
-    image: "/Penthouse.jpeg",
-    houseType: "Penthouse",
-    price: "₦7,000,000",
-    location: "Abuja",
-    views: 56,
-    featured: false,
-  },
-  {
-    id: 11,
-    estate: "Soteria City Phase II, Kuje",
-    size: "500sqm",
-    bedrooms: 4,
-    image: "/Penthouse.jpeg",
-    houseType: "Penthouse",
-    price: "₦9,000,000",
-    location: "Abuja",
-    views: 85,
-    featured: true,
-  },
-  ];
+  const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+    fetch("https://yesha-reality-backend-staging.up.railway.app/properties")
+      .then((res) => res.json())
+      .then((data) => {
+        setProperties(data); // ✅ update state
+      })
+      .catch((err) => console.error("Error fetching properties:", err));
+  }, []);
+
 
   return (
     <main id="project" className="project-container">
@@ -153,7 +30,7 @@ const Project = () => {
           luxury and smart living, this estate is poised to set a new standard
           for urban development.
         </p>
-          <FeaturedProperties properties={projects} />
+          <FeaturedProperties properties={properties} />
       </div>
     </main>
   );

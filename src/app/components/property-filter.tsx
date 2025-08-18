@@ -1,16 +1,12 @@
 "use client";
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useEffect } from "react";
+import { Property } from "@/types/property";
+import { Filters } from "@/types/filters";
 import CustomDropdown from "./custom-dropdown";
 import "../style/property-filter.css";
 
-// Define the filter structure
-type Filters = {
-  estate: string;
-  size: string;
-  bedrooms: string;
-  houseType: string;
-  price: string;
-  location: string;
+type PropertyCardProps = {
+  property: Property;
 };
 
 type Props = {
@@ -18,27 +14,48 @@ type Props = {
 };
 
 const PropertyFilter: React.FC<Props> = ({ onFilterChange }) => {
+  const [listOfEstate, setListOfEstate] = useState<string[]>([]);
+  const [listOfLandSize, setListOfLandSize] = useState<string[]>([]);
+  const [listOfBedroom, setListOfBedroom] = useState<string[]>([]);
+  const [listOfHouseType, setListOfHouseType] = useState<string[]>([]);
+  const [listOfPrice, setListOfPrice] = useState<string[]>([]);
+  const [listOfLocation, setListOfLocation] = useState<string[]>([]);
+  useEffect(() => {
+    fetch("https://yesha-reality-backend-staging.up.railway.app/properties")
+      .then((res) => res.json())
+      .then((data: Property[]) => {
+        setListOfEstate([...new Set(data.map((item) => item.estate))]);
+        setListOfLandSize([
+          ...new Set(data.map((item) => item.landSize.toString())),
+        ]);
+        setListOfBedroom([
+          ...new Set(data.map((item) => `${item.bedroom} Bedroom`)),
+        ]);
+        setListOfHouseType([...new Set(data.map((item) => item.houseType))]);
+        setListOfPrice([...new Set(data.map((item) => item.price))]);
+        setListOfLocation([...new Set(data.map((item) => item.location))]);
+      })
+      .catch((err) => console.error("Error fetching properties:", err));
+  }, []);
+
+  const sortedLandSize = [...listOfLandSize].sort(
+    (a, b) => Number(a) - Number(b)
+  );
+
   const [filters, setFilters] = useState<Filters>({
     estate: "",
-    size: "",
-    bedrooms: "",
+    landSize: "",
+    bedroom: "",
     houseType: "",
     price: "",
     location: "",
   });
 
-//   const handleChange = (e: ChangeEvent<HTMLSelectElement> | any) => {
-//     const { name, value } = e.target;
-//     const updated = { ...filters, [name]: value };
-//     setFilters(updated);
-//     onFilterChange(updated);
-//   };
-
   const handleClearFilters = () => {
     const resetFilters: Filters = {
       estate: "",
-      size: "",
-      bedrooms: "",
+      landSize: "",
+      bedroom: "",
       houseType: "",
       price: "",
       location: "",
@@ -48,96 +65,86 @@ const PropertyFilter: React.FC<Props> = ({ onFilterChange }) => {
   };
 
   const normalizeValue = (name: string, value: string) => {
-  if (name === "price") {
-    if (value.includes("Below")) return "5";
-    if (value.includes("₦5M - ₦8M")) return "8";
-    if (value.includes("Above")) return "10";
-  }
+    if (name === "price") {
+      if (value.includes("Below")) return "5";
+      if (value.includes("₦5M - ₦8M")) return "8";
+      if (value.includes("Above")) return "10";
+    }
 
-  if (name === "bedrooms") {
-    return value.split(" ")[0]; // "4 Bedrooms" → "4"
-  }
+    if (name === "bedroom") {
+      return value.split(" ")[0]; // "4 Bedroom" → "4"
+    }
 
-  return value;
-};
+    if (name === "landSize") {
+      return Number(value.split(" ")[0]); // "500 sqm" → 500
+    }
 
-const handleChange = (e: { target: { name: string; value: string } }) => {
-  const { name, value } = e.target;
-  const updated = {
-    ...filters,
-    [name]: normalizeValue(name, value),
+    return value;
   };
-  setFilters(updated);
-  onFilterChange(updated);
-};
+
+  const handleChange = (e: { target: { name: string; value: string } }) => {
+    const { name, value } = e.target;
+    const updated = {
+      ...filters,
+      [name]: normalizeValue(name, value),
+    };
+    setFilters(updated);
+    onFilterChange(updated);
+  };
+
+  console.log(filters);
 
   return (
     <div className="property-section_filter">
       <h3>Filter Property</h3>
       <div className="filter-grid">
         <CustomDropdown
-  name="estate"
-  value={filters.estate}
-  onChange={handleChange}
-  label="Estate/property"
-  options={[
-    "Soteria City, Jikoyi",
-    "Soteria City Phase II, Kuje",
-  ]}
-/>
+          name="estate"
+          value={filters.estate}
+          onChange={handleChange}
+          label="Estate/property"
+          options={listOfEstate}
+        />
 
-<CustomDropdown
-  name="size"
-  value={filters.size}
-  onChange={handleChange}
-  label="Plot Size"
-  options={[
-    "250sqm", "300sqm", "350sqm", "400sqm", "450sqm", "500sqm",
-    "550sqm", "600sqm", "650sqm", "700sqm", "750sqm", "800sqm",
-    "850sqm", "900sqm", "950sqm", "1000sqm"
-  ]}
-/>
+        <CustomDropdown
+          name="landSize"
+          value={filters.landSize}
+          onChange={handleChange}
+          label="Plot Size"
+          options={sortedLandSize}
+        />
 
-<CustomDropdown
-  name="bedrooms"
-  value={filters.bedrooms}
-  onChange={handleChange}
-  label="Bedroom"
-  options={["2 Bedroom", "3 Bedroom", "4 Bedroom", "5 Bedroom"]}
-/>
+        <CustomDropdown
+          name="bedroom"
+          value={filters.bedroom}
+          onChange={handleChange}
+          label="Bedroom"
+          options={listOfBedroom}
+        />
 
-<CustomDropdown
-  name="houseType"
-  value={filters.houseType}
-  onChange={handleChange}
-  label="Structure"
-  options={[
-    "Bungalow",
-    "Fully Detached Bungalow",
-    "Semi Detached Duplex",
-    "Fully Detached Duplex",
-    "Fully Terrace Duplex",
-    "Terrace Duplex with BQ",
-    "Penthouse"
-  ]}
-/>
+        <CustomDropdown
+          name="houseType"
+          value={filters.houseType}
+          onChange={handleChange}
+          label="Structure"
+          options={listOfHouseType}
+        />
 
-<CustomDropdown
-  name="price"
-  value={filters.price}
-  onChange={handleChange}
-  label="Price Range"
-  options={["Below ₦5M", "₦5M - ₦8M", "Above ₦8M"]}
-/>
+        <CustomDropdown
+          name="price"
+          value={filters.price}
+          onChange={handleChange}
+          label="Price Range"
+          options={["Below ₦5M", "₦5M - ₦8M", "Above ₦8M"]}
+        />
 
-<CustomDropdown
-  name="location"
-  value={filters.location}
-  onChange={handleChange}
-  label="Location"
-  options={["Abuja"]}
-/>
-
+        <CustomDropdown
+          name="location"
+          value={filters.location}
+          onChange={handleChange}
+          label="Location"
+          options={listOfLocation}
+        />
       </div>
 
       <button className="clear-filter-btn" onClick={handleClearFilters}>

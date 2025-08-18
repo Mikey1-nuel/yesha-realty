@@ -1,8 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, ArrowLeft } from "lucide-react";
+import { ChevronRight, ArrowLeft, PlusCircle } from "lucide-react";
+import { Property } from "@/types/property";
+import { Filters } from "@/types/filters";
 import Navbar from "@/app/components/navbar/page";
 import Footer from "@/app/components/footer/page";
 import PropertyCard from "@/app/components/property-card";
@@ -10,146 +12,63 @@ import MobilePropertyFilter from "@/app/components/mobille-property-filter";
 import PropertyFilter from "@/app/components/property-filter";
 import "../../style/properties.css";
 
-const allProperties = [
-  {
-    id: 1,
-    estate: "Soteria City, Jikoyi",
-    size: "250sqm",
-    bedrooms: 2,
-    image: "/Fully-Detached-Bungalow.jpeg",
-    houseType: "Fully Detached Bungalow",
-    price: "₦5,000,000",
-    location: "Abuja",
-    views: 25,
-    featured: false,
-  },
-  {
-    id: 2,
-    estate: "Soteria City, Jikoyi",
-    size: "350sqm",
-    bedrooms: 3,
-    image: "/Fully-Detached-Bungalow.jpeg",
-    houseType: "Fully Detached Bungalow",
-    price: "₦6,000,000",
-    location: "Abuja",
-    views: 58,
-    featured: false,
-  },
-  {
-    id: 3,
-    estate: "Soteria City, Jikoyi",
-    size: "400sqm",
-    bedrooms: 4,
-    image: "/Fully-Detached-Bungalow.jpeg",
-    houseType: "Fully Detached Bungalow",
-    price: "₦8,000,000",
-    location: "Abuja",
-    views: 65,
-    featured: false,
-  },
-  {
-    id: 4,
-    estate: "Soteria City, Jikoyi",
-    size: "450sqm",
-    bedrooms: 4,
-    image: "/Fully-Detached-Bungalow.jpeg",
-    houseType: "Fully Detached Bungalow",
-    price: "₦10,000,000",
-    location: "Abuja",
-    views: 75,
-    featured: true,
-  },
-  {
-    id: 5,
-    estate: "Soteria City Phase II, Kuje",
-    size: "150sqm",
-    bedrooms: 2,
-    image: "/Fully-Terrace-Duplex.jpeg",
-    houseType: "Fully Terrace Duplex",
-    price: "₦2,000,000",
-    location: "Abuja",
-    views: 45,
-    featured: true,
-  },
-  {
-    id: 6,
-    estate: "Soteria City Phase II, Kuje",
-    size: "250sqm",
-    bedrooms: 3,
-    image: "/Fully-Terrace-Duplex.jpeg",
-    houseType: "Fully Terrace Duplex",
-    price: "₦3,500,000",
-    location: "Abuja",
-    views: 60,
-    featured: true,
-  },
-  {
-    id: 7,
-    estate: "Soteria City Phase II, Kuje",
-    size: "350sqm",
-    bedrooms: 3,
-    image: "/Fully-Detached-Bungalow.jpeg",
-    houseType: "Fully Detached Bungalow",
-    price: "₦4,500,000",
-    location: "Abuja",
-    views: 55,
-    featured: false,
-  },
-  {
-    id: 8,
-    estate: "Soteria City Phase II, Kuje",
-    size: "400sqm",
-    bedrooms: 4,
-    image: "/Fully-Detached-Bungalow.jpeg",
-    houseType: "Fully Detached Bungalow",
-    price: "₦5,500,000",
-    location: "Abuja",
-    views: 70,
-    featured: true,
-  },
-  {
-    id: 9,
-    estate: "Soteria City Phase II, Kuje",
-    size: "500sqm",
-    bedrooms: 4,
-    image: "/Fully-Detached-Duplex.jpeg",
-    houseType: "Terrace Duplex with BQ",
-    price: "₦7,000,000",
-    location: "Abuja",
-    views: 80,
-    featured: true,
-  },
-  {
-    id: 10,
-    estate: "Soteria City Phase II, Kuje",
-    size: "500sqm",
-    bedrooms: 3,
-    image: "/Penthouse.jpeg",
-    houseType: "Penthouse",
-    price: "₦7,000,000",
-    location: "Abuja",
-    views: 56,
-    featured: false,
-  },
-  {
-    id: 11,
-    estate: "Soteria City Phase II, Kuje",
-    size: "500sqm",
-    bedrooms: 4,
-    image: "/Penthouse.jpeg",
-    houseType: "Penthouse",
-    price: "₦9,000,000",
-    location: "Abuja",
-    views: 85,
-    featured: true,
-  },
-];
+type PropertyCardProps = {
+  property: Property;
+  onDelete: (id: number) => void;
+  deletingId: number | null;
+};
 
 const Properties = () => {
-  const [filtered, setFiltered] = useState(allProperties);
-  const mostViewed = [...allProperties]
+  const [availableproperties, setAvailableproperties] = useState<Property[]>(
+    []
+  );
+  const [deletingId, setDeletingId] = useState<number | null>(null);
+  const [filtered, setFiltered] = useState<Property[]>([]);
+  const mostViewed = [...availableproperties]
     .sort((a, b) => b.views - a.views)
     .slice(0, 2);
+
+  useEffect(() => {
+  fetch("https://yesha-reality-backend-staging.up.railway.app/properties")
+    .then((res) => res.json())
+    .then((data) => {
+      // Sort by most recent
+      const sortedData = [...data].sort(
+        (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      );
+
+      setAvailableproperties(sortedData);
+      setFiltered(sortedData);
+    })
+    .catch((err) => console.error("Error fetching properties:", err));
+}, []);
+
+const handleDeleteProperty = async (id: number) => {
+  setDeletingId(id);
+  try {
+    const res = await fetch(`https://yesha-reality-backend-staging.up.railway.app/properties/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      console.error("Server error:", errorText);
+      throw new Error("Failed to delete property");
+    }
+
+    console.log("Deleted property:", await res.json());
+
+    const updatedRes = await fetch("https://yesha-reality-backend-staging.up.railway.app/properties");
+    const updatedData = await updatedRes.json();
+    setAvailableproperties(updatedData);
+    setFiltered(updatedData);
+  } catch (err) {
+    console.error("Error deleting property:", err);
+  } finally {
+    setDeletingId(null);
+  }
+};
+
 
   const propertiesPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
@@ -165,20 +84,12 @@ const Properties = () => {
     indexOfLastProperty
   );
 
-  type Filters = {
-    estate: string;
-    size: string;
-    bedrooms: string;
-    houseType: string;
-    price: string;
-  };
-
   const handleFilterChange = (filters: Filters) => {
-    const filteredResults = allProperties.filter((p) => {
+    const filteredResults = availableproperties.filter((p) => {
       return (
         (!filters.estate || p.estate === filters.estate) &&
-        (!filters.size || p.size === filters.size) &&
-        (!filters.bedrooms || p.bedrooms === parseInt(filters.bedrooms)) &&
+        (!filters.landSize || p.landSize === parseInt(filters.landSize)) &&
+        (!filters.bedroom || p.bedroom === parseInt(filters.bedroom)) &&
         (!filters.houseType || p.houseType === filters.houseType) &&
         (!filters.price ||
           (filters.price === "5" &&
@@ -193,6 +104,7 @@ const Properties = () => {
 
     setFiltered(filteredResults);
   };
+
   return (
     <main>
       <Navbar />
@@ -237,12 +149,14 @@ const Properties = () => {
                 <div className="sidebar-property" key={property.id}>
                   <div className="img-et-attribute">
                     <div className="land-img">
-                      <Image
-                        src={property.image}
-                        alt=""
-                        width={350}
-                        height={50}
-                      />
+                      {property.image && (
+                        <Image
+                          src={`http://localhost:8000${property.image}`}
+                          alt=""
+                          width={350}
+                          height={50}
+                        />
+                      )}
                     </div>
 
                     <div className="attribute">
@@ -253,7 +167,7 @@ const Properties = () => {
                           width={20}
                           height={20}
                         />
-                        <span>{property.size}</span>
+                        <span>{property.landSize} sqm</span>
                       </div>
 
                       <div className="icon-value-container">
@@ -263,23 +177,23 @@ const Properties = () => {
                           width={20}
                           height={20}
                         />
-                        <span>{property.bedrooms}</span>
+                        <span>{property.bedroom}</span>
                       </div>
                     </div>
                   </div>
                   <div className="land-info">
                     <div className="house-type-price">
                       <h3>
-                        {property.bedrooms} bedroom {property.houseType}
+                        {property.bedroom} Bedroom {property.houseType}
                       </h3>
-                      <span>{property.price}</span>
+                      <span>₦{Number(property.price).toLocaleString()}</span>
                     </div>
                     <div className="land-info-desc">
                       <p>
                         <strong>{property.estate}</strong>
                       </p>
                       <p>
-                        {property.bedrooms} bedroom {property.houseType} in{" "}
+                        {property.bedroom} bedroom {property.houseType} in{" "}
                         {property.estate} estate, {property.location}
                       </p>
                     </div>
@@ -290,15 +204,24 @@ const Properties = () => {
           </div>
         </div>
         <div className="property-pagination">
+          <div className="add-new-property">
+            <Link href="/page/create-property-form">
+              <button className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <PlusCircle size={20} />
+                Add Property
+              </button>
+            </Link>
+          </div>
           <div
             className={`land-listings ${
               filtered.length === 0 ? "full-grid" : ""
             }`}
           >
             <MobilePropertyFilter onFilterChange={handleFilterChange} />
-            <div className={`mobile-propty-container ${
-              filtered.length === 0 ? "full-grid" : ""
-            }`}
+            <div
+              className={`mobile-propty-container ${
+                filtered.length === 0 ? "full-grid" : ""
+              }`}
             >
               {filtered.length === 0 ? (
                 <div className="not-found">
@@ -311,7 +234,9 @@ const Properties = () => {
                 </div>
               ) : (
                 currentProperties.map((property) => (
-                  <PropertyCard key={property.id} property={property} />
+                  <PropertyCard key={property.id} property={property} onDelete={handleDeleteProperty} deletingId={deletingId}
+
+ />
                 ))
               )}
             </div>
