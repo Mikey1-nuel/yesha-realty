@@ -518,7 +518,7 @@ display: grid;
     }
 
     .agents-container {
-    padding: 100px 2px;
+    padding: 100px 20px;
   background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
@@ -534,7 +534,7 @@ display: grid;
   color: #333333;
   margin-bottom: 40px;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 .mobile-propty-container {
