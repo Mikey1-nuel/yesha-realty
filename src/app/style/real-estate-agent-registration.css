@@ -287,7 +287,7 @@ display: grid;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px 0px;
   transition: all 0.3s ease;
   max-width: 100%;
-  height: 300px;
+  height: 320px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -334,7 +334,7 @@ display: grid;
 }
 
 .agent-name-et-agency h3 {
-    font-size: 20px;
+    font-size: 18px;
   color: rgb(42, 42, 51);
   text-transform: capitalize;
   font-family: Montserrat, sans-serif;
@@ -347,7 +347,7 @@ display: grid;
 .agent-name-et-agency span {
     color: #333333;
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   text-transform: capitalize;
   font-family: Montserrat, sans-serif;
   font-weight: 500;

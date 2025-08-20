@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Trash2, Star } from "lucide-react";
 import { Agent } from "@/types/agent";
 import "../style/properties.css";
+// import '../style/real-estate-agent-registration.css';
 
 type AgentCardProps = {
   agent: Agent;
