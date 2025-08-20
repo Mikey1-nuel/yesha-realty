@@ -10,7 +10,7 @@ import Footer from "@/app/components/footer/page";
 import PropertyCard from "@/app/components/property-card";
 import MobilePropertyFilter from "@/app/components/mobille-property-filter";
 import PropertyFilter from "@/app/components/property-filter";
-import "../../style/properties.css";
+import "../style/properties.css";
 
 type PropertyCardProps = {
   property: Property;

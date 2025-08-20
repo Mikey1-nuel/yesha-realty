@@ -21,7 +21,7 @@ const Navbar = () => {
           <Link href="/">
             <Image
               src="/ChatGPT Image Aug 3, 2025, 05_25_19 PM.png"
-              alt="Yesha Reality Logo"
+              alt="Yesha Reality real estate company logo"
               width={70}
               height={70}
             />
@@ -37,16 +37,16 @@ const Navbar = () => {
               <Link href="/#our-mission">Our Mission</Link>
             </li>
             <li className="desk-nav-item">
-              <Link href="/page/properties">Properties</Link>
+              <Link href="/properties">Properties</Link>
             </li>
             <li className="desk-nav-item">
-              <Link href="/page/our-story">Our Story</Link>
+              <Link href="/pages/our-story">Our Story</Link>
             </li>
             <li className="desk-nav-item">
-              <Link href="/page/real-estate-agent-registration">Register As Realtor</Link>
+              <Link href="/pages/real-estate-agent-registration">Register As Realtor</Link>
             </li>
             <li className="desk-nav-item">
-              <Link href="/page/contact-us">Contact Us</Link>
+              <Link href="/pages/contact-us">Contact Us</Link>
             </li>
           </ul>
         </div>
@@ -58,7 +58,7 @@ const Navbar = () => {
             <Link onClick={handleLogoClick} href="/">
               <Image
                 src="/ChatGPT Image Aug 3, 2025, 05_25_19 PM.png"
-                alt="Yesha Reality Logo"
+                alt="Yesha Reality real estate company logo"
                 width={80}
                 height={80}
               />
@@ -88,16 +88,16 @@ const Navbar = () => {
               <Link href="/#our-mission">Our Mission</Link>
             </li>
             <li>
-              <Link href="/page/properties">Properties</Link>
+              <Link href="/properties">Properties</Link>
             </li>
             <li>
-              <Link href="/page/our-story">Our Story</Link>
+              <Link href="/pages/our-story">Our Story</Link>
             </li>
             <li>
-              <Link href="/page/real-estate-agent-registration">Register As Realtor</Link>
+              <Link href="/pages/real-estate-agent-registration">Register As Realtor</Link>
             </li>
             <li>
-              <Link href="/page/contact-us">Contact Us</Link>
+              <Link href="/pages/contact-us">Contact Us</Link>
             </li>
           </ul>
         </section>

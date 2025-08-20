@@ -72,7 +72,7 @@ const BecomeAnAgent = () => {
             experience, contact information, and preferred locations to help
             potential clients and agencies connect with you easily.
           </p>
-          <a href="/page/real-estate-agent-registration-form">
+          <a href="/pages/real-estate-agent-registration-form">
             <button className="create-account">Sign up now</button>
           </a>
           <a

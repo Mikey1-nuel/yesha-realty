@@ -1,45 +1,13 @@
 "use client";
 import React from "react";
-import Head from "next/head";
 import Navbar from "@/app/components/navbar/page";
 import Footer from "@/app/components/footer/page";
 import "../../style/contact.css";
 import ContactForm from "@/app/components/contact-form";
 
 const ContactUs = () => {
-  const contactSchema = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    name: "Yesha Realty",
-    url: "https://yourdomain.com/contact",
-    logo: "https://yourdomain.com/logo.png",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress:
-        "Suite D7 & D8 Sliverline Plaza, Plot 1543 Cadastral Zone A03 Safana Close Garki 2, Abuja",
-      addressLocality: "Garki 2, Abuja",
-      addressRegion: "FCT",
-      postalCode: "900247",
-      addressCountry: "NG",
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+234 702 6521 222",
-      contactType: "customer service",
-      areaServed: "NG",
-      availableLanguage: ["English"],
-    },
-  };
-
   return (
     <main className="contact-container">
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
-        />
-      </Head>
-
       <Navbar />
 
       <section className="contact-us">

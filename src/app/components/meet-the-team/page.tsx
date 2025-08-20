@@ -77,7 +77,7 @@ const ManagementTeam = () => {
             <div className="team-member-img">
               <Image
                 src={team.picture}
-                alt="team-member"
+                alt={`${team.name}, ${team.jobTitle} at Yesha Reality`}
                 width={team.width}
                 height={team.height}
               />

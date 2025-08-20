@@ -28,9 +28,9 @@ const AgentCard = ({
       <div className="image-et-attribute">
         <div className="agent-img">
           {agent.image ? (
-            <Image
+          <Image
               src={`https://yesha-reality-backend-staging.up.railway.app${agent.image}`}
-              alt="agent"
+              alt={`Real estate agent ${agent.fullName} based in ${agent.state}`}
               width={400}
               height={210}
               style={{ objectFit: "cover" }}

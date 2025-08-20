@@ -28,7 +28,7 @@ const PropertyCard = ({
           {property.image ? (
             <Image
               src={`https://yesha-reality-backend-staging.up.railway.app${property.image}`}
-              alt="Property"
+              alt={`${property.bedroom}-bedroom ${property.houseType} for sale at ${property.estate}, ${property.location} - ${property.landSize} - Price ${property.price}`}
               width={400}
               height={210}
               style={{ objectFit: "cover" }}
@@ -53,12 +53,22 @@ const PropertyCard = ({
 
         <div className="attribute">
           <div className="icon-value-container">
-            <Image src="/land-size.webp" alt="Size" width={20} height={20} />
+            <Image
+              src="/land-size.webp"
+              alt={`Land size of ${property.landSize} square meters`}
+              width={20}
+              height={20}
+            />
             <span>{property.landSize} sqm</span>
           </div>
 
           <div className="icon-value-container">
-            <Image src="/bedroom.webp" alt="Bedroom" width={20} height={20} />
+            <Image
+              src="/bedroom.webp"
+              alt={`${property.bedroom}-bedroom property`}
+              width={20}
+              height={20}
+            />
             <span>{property.bedroom}</span>
           </div>
         </div>

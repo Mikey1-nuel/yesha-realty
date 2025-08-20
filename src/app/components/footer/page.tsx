@@ -12,7 +12,7 @@ const Footer = () => {
           <Link href="/">
             <Image
               src="/SAVE_20250727_212827-removebg-preview.png"
-              alt="Yesha Reality Logo"
+              alt="Yesha Reality real estate company logo"
               width={80}
               height={80}
             />
