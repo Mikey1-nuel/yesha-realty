@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://yesha-realty.vercel.app</loc><lastmod>2025-08-20T07:23:28.807Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://yesha-realty.vercel.app/pages/contact-us</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://yesha-realty.vercel.app/pages/create-property-form</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://yesha-realty.vercel.app/pages/real-estate-agent-registration-form</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://yesha-realty.vercel.app/pages/our-story</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://yesha-realty.vercel.app/pages/real-estate-agent-registration</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 <url><loc>https://yesha-realty.vercel.app/components/about-us</loc><lastmod>2025-08-20T07:23:28.804Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 <url><loc>https://yesha-realty.vercel.app/components/hero</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 <url><loc>https://yesha-realty.vercel.app/components/meet-the-team</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 <url><loc>https://yesha-realty.vercel.app/components/navbar</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 <url><loc>https://yesha-realty.vercel.app/components/our-mission</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 <url><loc>https://yesha-realty.vercel.app/components/project</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://yesha-realty.vercel.app/page/contact-us</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://yesha-realty.vercel.app/page/create-property-form</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://yesha-realty.vercel.app/page/our-story</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://yesha-realty.vercel.app/page/real-estate-agent-registration-form</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://yesha-realty.vercel.app/page/properties</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://yesha-realty.vercel.app/page/real-estate-agent-registration</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://yesha-realty.vercel.app/pages/contact-us</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://yesha-realty.vercel.app/pages/create-property-form</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://yesha-realty.vercel.app/pages/real-estate-agent-registration-form</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://yesha-realty.vercel.app/pages/our-story</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://yesha-realty.vercel.app/pages/real-estate-agent-registration</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 <url><loc>https://yesha-realty.vercel.app/properties</loc><lastmod>2025-08-20T07:23:28.806Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://yesha-realty.vercel.app</loc><lastmod>2025-08-20T07:23:28.807Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 <url><loc>https://yesha-realty.vercel.app/components/footer</loc><lastmod>2025-08-20T07:23:28.807Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
