@@ -64,7 +64,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
     // ⏳ Wait 1.5 seconds before redirecting
     setTimeout(() => {
-      router.push("/pages/properties");
+      router.push("/properties");
     }, 1500);
   } catch (error) {
     console.error(error);

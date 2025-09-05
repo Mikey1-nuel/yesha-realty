@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Trash2 } from "lucide-react";
 import { Property } from "@/types/property";
@@ -17,9 +17,15 @@ const PropertyCard = ({
   deletingId,
 }: PropertyCardProps) => {
   console.log("PropertyCard props:", property);
+  const [userRole, setUserRole] = useState<string | null>(null);
   const truncateText = (text: string, maxLength: number) => {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
   };
+
+  useEffect(() => {
+    const role = localStorage.getItem("userRole");
+    setUserRole(role);
+  }, []);
 
   return (
     <div className="land-card" key={property.id}>
@@ -93,16 +99,18 @@ const PropertyCard = ({
           </p>
         </div>
       </div>
-      <Trash2
-        size={24}
-        color="red"
-        className="delete-icon"
-        onClick={() => onDelete(property.id)}
-        style={{
-          opacity: deletingId === property.id ? 0.5 : 1,
-          pointerEvents: deletingId === property.id ? "none" : "auto",
-        }}
-      />
+      {userRole === "admin" && (
+        <Trash2
+          size={24}
+          color="red"
+          className="delete-icon"
+          onClick={() => onDelete(property.id)}
+          style={{
+            opacity: deletingId === property.id ? 0.5 : 1,
+            pointerEvents: deletingId === property.id ? "none" : "auto",
+          }}
+        />
+      )}
     </div>
   );
 };

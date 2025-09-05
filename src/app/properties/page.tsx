@@ -22,11 +22,18 @@ const Properties = () => {
   const [availableproperties, setAvailableproperties] = useState<Property[]>(
     []
   );
+  const [userRole, setUserRole] = useState<string | null>(null);
   const [deletingId, setDeletingId] = useState<number | null>(null);
   const [filtered, setFiltered] = useState<Property[]>([]);
   const mostViewed = [...availableproperties]
     .sort((a, b) => b.views - a.views)
     .slice(0, 2);
+
+    useEffect(() => {
+      const role = localStorage.getItem("userRole");
+      setUserRole(role);
+    }, []);
+
 
   useEffect(() => {
   fetch("https://yesha-reality-backend-staging.up.railway.app/properties")
@@ -206,12 +213,14 @@ const handleDeleteProperty = async (id: number) => {
         </div>
         <div className="property-pagination">
           <div className="add-new-property">
+            {userRole === "admin" && (
             <Link href="/pages/create-property-form">
               <button className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
                 <PlusCircle size={20} />
                 Add Property
               </button>
             </Link>
+            )}
           </div>
           <div
             className={`land-listings ${

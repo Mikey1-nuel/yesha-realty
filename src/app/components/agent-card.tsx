@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Trash2, Star } from "lucide-react";
 import { Agent } from "@/types/agent";
@@ -12,24 +12,25 @@ type AgentCardProps = {
   deletingId: number | null;
 };
 
-const AgentCard = ({
-  agent,
-  onDelete,
-  deletingId,
-}: AgentCardProps) => {
+const AgentCard = ({ agent, onDelete, deletingId }: AgentCardProps) => {
   console.log("AgentCard props:", agent);
   const truncateText = (text: string, maxLength: number) => {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
   };
-
+  const [userRole, setUserRole] = useState<string | null>(null);
   const displayAgency = agent.agency || "Freelancer";
+
+  useEffect(() => {
+    const role = localStorage.getItem("userRole");
+    setUserRole(role);
+  }, []);
 
   return (
     <div className="agent-card" key={agent.id}>
       <div className="image-et-attribute">
         <div className="agent-img">
           {agent.image ? (
-          <Image
+            <Image
               src={`https://yesha-reality-backend-staging.up.railway.app${agent.image}`}
               alt={`Real estate agent ${agent.fullName} based in ${agent.state}`}
               width={400}
@@ -57,18 +58,15 @@ const AgentCard = ({
 
       <div className="agent-info">
         <div className="agent-name-et-agency">
-          <h3>
-            {agent.fullName}
-          </h3>
+          <h3>{agent.fullName}</h3>
           <span>@{displayAgency}</span>
         </div>
         <div className="agent-info-desc">
           <p>
-            <strong>Cell: </strong>{agent.phoneNumber}
+            <strong>Cell: </strong>
+            {agent.phoneNumber}
           </p>
-          <p>
-            {agent.gender}
-          </p>
+          <p>{agent.gender}</p>
           <p>
             <strong>Location: </strong> {agent.state}
           </p>
@@ -76,28 +74,30 @@ const AgentCard = ({
             <strong>{agent.experience} </strong> years of experience
           </p>
         </div>
-<div className="star-rating">
-  {[...Array(5)].map((_, i) => (
-    <Star
-      key={i}
-      size={20}
-      color="#facc15" // Tailwind yellow-400
-      fill="#facc15"  // Solid fill
-      strokeWidth={1.5}
-    />
-  ))}
-</div>
+        <div className="star-rating">
+          {[...Array(5)].map((_, i) => (
+            <Star
+              key={i}
+              size={20}
+              color="#facc15" // Tailwind yellow-400
+              fill="#facc15" // Solid fill
+              strokeWidth={1.5}
+            />
+          ))}
+        </div>
       </div>
-      <Trash2
-        size={24}
-        color="red"
-        className="delete-icon"
-        onClick={() => onDelete(agent.id)}
-        style={{
-          opacity: deletingId === agent.id ? 0.5 : 1,
-          pointerEvents: deletingId === agent.id ? "none" : "auto",
-        }}
-      />
+      {userRole === "admin" && (
+        <Trash2
+          size={24}
+          color="red"
+          className="delete-icon"
+          onClick={() => onDelete(agent.id)}
+          style={{
+            opacity: deletingId === agent.id ? 0.5 : 1,
+            pointerEvents: deletingId === agent.id ? "none" : "auto",
+          }}
+        />
+      )}
     </div>
   );
 };
