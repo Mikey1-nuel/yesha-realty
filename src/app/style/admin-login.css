@@ -43,7 +43,7 @@
     border: 1px solid #ccc;
     padding: 10px 20px;
     border-radius: 5px;
-    color: #333;
+    color: #fff;
     outline: none;
     text-transform: capitalize;
     font-family: Montserrat, sans-serif;
@@ -98,6 +98,7 @@
     align-items: center;
     gap: 10px;
     margin-top: 10px;
+    width: 100%;
 }
 
 .signinform .no-account p,
@@ -120,4 +121,116 @@
 
 .signinform .form .email {
     text-transform: none;
+}
+
+@media (max-width: 768px) {
+  .sign-in-cont {
+    padding: 60px 40px;
+  }
+
+  .signinform {
+    padding: 50px 40px;
+  }
+
+  .signinform h1 {
+    font-size: 32px;
+    margin-bottom: 60px;
+  }
+
+  .signinform .form {
+    width: 80%;
+  }
+
+  .label {
+    font-size: 1.1rem;
+  }
+
+  .signinform .no-account p,
+  .signinform .forget-password p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .sign-in-cont {
+    padding: 40px 30px;
+  }
+
+  .signinform {
+    padding: 40px 30px;
+  }
+
+  .signinform h1 {
+    font-size: 28px;
+    margin-bottom: 50px;
+  }
+
+  .signinform .form {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .signinform .form .input {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .signinform button {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sign-in-cont {
+    padding: 30px 20px;
+  }
+
+  .signinform {
+    padding: 30px 20px;
+  }
+
+  .signinform h1 {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+
+  .signinform .form {
+    width: 100%;
+    padding: 0;
+  }
+
+  .signinform .form .input {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .label {
+    font-size: 0.9rem;
+  }
+
+  .signinform button {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .signinform .no-account,
+  .signinform .forget-password {
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .signinform .no-account p,
+  .signinform .forget-password p {
+    font-size: 0.95rem;
+  }
+
+  .signinform .no-account a,
+  .signinform .forget-password a {
+    font-size: 0.9rem;
+  }
 }
