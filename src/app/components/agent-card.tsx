@@ -33,8 +33,8 @@ const AgentCard = ({ agent, onDelete, deletingId }: AgentCardProps) => {
             <Image
               src={`https://yesha-reality-backend-staging.up.railway.app${agent.image}`}
               alt={`Real estate agent ${agent.fullName} based in ${agent.state}`}
-              width={400}
-              height={210}
+              width={500}
+              height={310}
               style={{ objectFit: "cover" }}
             />
           ) : (
@@ -63,27 +63,11 @@ const AgentCard = ({ agent, onDelete, deletingId }: AgentCardProps) => {
         </div>
         <div className="agent-info-desc">
           <p>
-            <strong>Cell: </strong>
-            {agent.phoneNumber}
-          </p>
-          <p>{agent.gender}</p>
-          <p>
-            <strong>Location: </strong> {agent.state}
-          </p>
-          <p>
             <strong>{agent.experience} </strong> years of experience
           </p>
-        </div>
-        <div className="star-rating">
-          {[...Array(5)].map((_, i) => (
-            <Star
-              key={i}
-              size={20}
-              color="#facc15" // Tailwind yellow-400
-              fill="#facc15" // Solid fill
-              strokeWidth={1.5}
-            />
-          ))}
+          <p>
+            <strong>Bio: </strong>{agent.bio}
+          </p>
         </div>
       </div>
       {userRole === "admin" && (

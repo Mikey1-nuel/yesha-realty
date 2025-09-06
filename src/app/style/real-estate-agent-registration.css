@@ -87,7 +87,7 @@ display: grid;
 
 .agent-card {
   background: #fff;
-  padding: 20px 30px;
+  padding: 10px 10px;
   border-radius: 12px;
   border: 1px solid rgb(209, 209, 213);
     box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px 0px;
@@ -112,20 +112,20 @@ display: grid;
   position: relative;
 }
 
-.land-img {
+.agent-img {
   max-width: 150px;
   max-height: 150px;
   z-index: 1;
 }
 
-.land-img img {
+.agent-img img {
   max-width: 150px;
   height: 150px;
   object-fit: cover;
 }
 
 .agent-info {
-    width: 50%;
+  width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -139,7 +139,7 @@ display: grid;
 }
 
 .agent-name-et-agency h3 {
-    font-size: 20px;
+    font-size: 16px;
   color: rgb(42, 42, 51);
   text-transform: capitalize;
   font-family: Montserrat, sans-serif;
@@ -151,7 +151,7 @@ display: grid;
 .agent-name-et-agency span {
     color: #333333;
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   text-transform: capitalize;
   font-family: Montserrat, sans-serif;
   font-weight: 500;
@@ -160,7 +160,7 @@ display: grid;
 .agent-info p {
     color: #333333;
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   text-transform: capitalize;
   font-family: Montserrat, sans-serif;
   font-weight: 500;
@@ -307,13 +307,13 @@ display: grid;
   position: relative;
 }
 
-.land-img {
+.agent-img {
   max-width: 150px;
   max-height: 150px;
   z-index: 1;
 }
 
-.land-img img {
+.agent-img img {
   max-width: 150px;
   height: 150px;
   object-fit: cover;

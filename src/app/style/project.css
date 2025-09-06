@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+.landing-featured-prop {
+  padding: 70px 70px;
+}
+
 .project-subcontainer {
   display: flex;
   flex-direction: column;

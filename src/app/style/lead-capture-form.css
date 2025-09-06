@@ -1,0 +1,157 @@
+.lead-form {
+  background-color: #dde1e7;
+  padding: 4rem 2rem;
+  max-width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lead-form h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 400px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  color: #333;
+}
+
+input:focus {
+  border-color: #002f6c;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #002f6c;
+  color: white;
+  padding: 0.75rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #00295f;
+}
+
+.promise {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Modal Box */
+.modal-content {
+  background: #1b213a;
+  padding: 20px 25px;
+  border-radius: 10px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+  /* Animation */
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Title */
+.modal-content h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Montserrat, sans-serif;
+}
+
+/* Text */
+.modal-content p {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+}
+
+/* Buttons */
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-close {
+  width: 90px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: Montserrat, sans-serif;
+  transition: background 0.2s ease;
+}
+
+.btn-close {
+  background: #ccc;
+  color: #333;
+}
+
+.btn-close:hover {
+  background: #b3b3b3;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+  .lead-form {
+    padding: 2rem 1rem;
+  }
+
+  input,
+  button {
+    font-size: 0.95rem;
+  }
+}

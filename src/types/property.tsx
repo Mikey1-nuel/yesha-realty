@@ -9,4 +9,5 @@ export type Property = {
   location: string;
   views: number;
   featured: boolean;
+   created_at: string; // 👈 Add this line
 };

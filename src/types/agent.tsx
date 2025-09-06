@@ -7,6 +7,7 @@ export type Agent = {
   state: string;
   experience: "0-1" | "2-3" | "4+"; // ✅ matches ENUM
   agency?: string;
+  bio?: string;
   image: string; // ✅ included in SQL but missing in TS
   password: string;
 };

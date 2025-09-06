@@ -30,7 +30,8 @@
     height: 100%;
 }
 
-.form .input {
+.form .input,
+.form textarea {
     border: 1px solid #ccc;
     width: 100%;
     padding: 10px 20px;
@@ -79,6 +80,11 @@
     color: #333;
     outline: 1px solid #0056b3;
     outline: none;
+}
+
+#charCount {
+  font-size: 0.9em;
+  color: #555;
 }
 
 .label-select-cont .select:focus {

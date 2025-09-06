@@ -1,0 +1,59 @@
+.neighborhoods {
+  background: #f4f4f4;
+  padding: 3rem 2rem;
+  max-width: 100%;
+  margin: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.neighborhoods h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.area-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.area-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.area-card:hover {
+  transform: translateY(-5px);
+}
+
+.area-card h3 {
+  font-size: 1.3rem;
+  color: #002f6c;
+  margin-bottom: 1rem;
+}
+
+.area-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.area-card li {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.area-card li::before {
+  content: '🏡';
+  position: absolute;
+  left: 0;
+}

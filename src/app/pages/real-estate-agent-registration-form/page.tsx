@@ -15,6 +15,7 @@ const AgentRegistration = () => {
     gender: string;
     state: string;
     agency: string;
+    bio: string;
     experience: string; // ✅ use '0-1', '2-3', '4+'
     password: string;
     confirmPassword: string;
@@ -27,6 +28,7 @@ const AgentRegistration = () => {
     gender: "",
     state: "",
     agency: "",
+    bio: "",
     experience: "",
     password: "",
     confirmPassword: "",
@@ -34,7 +36,7 @@ const AgentRegistration = () => {
   const [image, setImage] = useState<File | null>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -62,10 +64,13 @@ const AgentRegistration = () => {
     }
 
     try {
-      const res = await fetch("https://yesha-reality-backend-staging.up.railway.app/agents", {
-        method: "POST",
-        body: data,
-      });
+      const res = await fetch(
+        "https://yesha-reality-backend-staging.up.railway.app/agents",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
 
       if (!res.ok) throw new Error("Failed to create agent");
 
@@ -88,6 +93,18 @@ const AgentRegistration = () => {
       toast.error("Something went wrong. Please try again.");
     }
   };
+
+  function updateCounter(e: React.FormEvent<HTMLTextAreaElement>) {
+    const textarea = e.currentTarget;
+    const counter = document.getElementById("charCount");
+
+    if (!counter) return;
+
+    const maxLength = textarea.maxLength;
+    const currentLength = textarea.value.length;
+
+    counter.textContent = `${maxLength - currentLength} characters remaining`;
+  }
 
   return (
     <main>
@@ -244,6 +261,17 @@ const AgentRegistration = () => {
             className="input"
             onChange={handleChange}
           />
+
+          <label htmlFor="bio" className="label">Bio</label>
+          <textarea
+            name="bio"
+            id="bio"
+            maxLength={100}
+            onInput={updateCounter}
+            onChange={handleChange}
+            placeholder="Tell us about yourself..."
+          />
+          <div id="charCount">100 characters remaining</div>
 
           <div className="custom-file-upload">
             <label

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, ArrowLeft, PlusCircle } from "lucide-react";
@@ -12,131 +12,130 @@ import MobilePropertyFilter from "@/app/components/mobille-property-filter";
 import PropertyFilter from "@/app/components/property-filter";
 import "../style/properties.css";
 
-type PropertyCardProps = {
-  property: Property;
-  onDelete: (id: number) => void;
-  deletingId: number | null;
-};
-
 const Properties = () => {
-  const [availableproperties, setAvailableproperties] = useState<Property[]>(
+  const [availableProperties, setAvailableProperties] = useState<Property[]>(
     []
   );
+  const [filtered, setFiltered] = useState<Property[]>([]);
   const [userRole, setUserRole] = useState<string | null>(null);
   const [deletingId, setDeletingId] = useState<number | null>(null);
-  const [filtered, setFiltered] = useState<Property[]>([]);
-  const mostViewed = [...availableproperties]
-    .sort((a, b) => b.views - a.views)
-    .slice(0, 2);
+  const [currentPage, setCurrentPage] = useState(1);
+  const propertiesPerPage = 8;
 
-    useEffect(() => {
-      const role = localStorage.getItem("userRole");
-      setUserRole(role);
-    }, []);
-
-
+  // Fetch user role
   useEffect(() => {
-  fetch("https://yesha-reality-backend-staging.up.railway.app/properties")
-    .then((res) => res.json())
-    .then((data) => {
-      // Sort by most recent
-      const sortedData = [...data].sort(
-        (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    const role = localStorage.getItem("userRole");
+    setUserRole(role);
+  }, []);
+
+  // Fetch properties
+  useEffect(() => {
+    fetch("https://yesha-reality-backend-staging.up.railway.app/properties")
+      .then((res) => res.json())
+      .then((data: Property[]) => {
+        const sortedData = [...data].sort(
+          (a, b) =>
+            new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+        setAvailableProperties(sortedData);
+        setFiltered(sortedData);
+      })
+      .catch((err) => console.error("Error fetching properties:", err));
+  }, []);
+
+  // Delete property and update both states
+  const handleDeleteProperty = async (id: number) => {
+    setDeletingId(id);
+    try {
+      const res = await fetch(
+        `https://yesha-reality-backend-staging.up.railway.app/properties/${id}`,
+        { method: "DELETE" }
       );
 
-      setAvailableproperties(sortedData);
-      setFiltered(sortedData);
-    })
-    .catch((err) => console.error("Error fetching properties:", err));
-}, []);
-
-const handleDeleteProperty = async (id: number) => {
-  setDeletingId(id);
-  try {
-    const res = await fetch(
-      `https://yesha-reality-backend-staging.up.railway.app/properties/${id}`,
-      {
-        method: "DELETE",
+      if (!res.ok) {
+        const errorText = await res.text();
+        console.error("Server error:", errorText);
+        throw new Error("Failed to delete property");
       }
-    );
 
-    if (!res.ok) {
-      const errorText = await res.text();
-      console.error("Server error:", errorText);
-      throw new Error("Failed to delete property");
+      console.log("Deleted property:", await res.json());
+
+      setAvailableProperties((prev) => {
+        const updated = prev.filter((p) => p.id !== id);
+        setFiltered(updated); // Sync filtered view
+        if (currentPage > Math.ceil(updated.length / propertiesPerPage)) {
+          setCurrentPage(1); // Reset page if out of bounds
+        }
+        return updated;
+      });
+    } catch (err) {
+      console.error("Error deleting property:", err);
+    } finally {
+      setDeletingId(null);
     }
+  };
 
-    console.log("Deleted property:", await res.json());
-
-    // ✅ Update state locally instead of re-fetching
-    setAvailableproperties((prev) => prev.filter((p) => p.id !== id));
-  } catch (err) {
-    console.error("Error deleting property:", err);
-  } finally {
-    setDeletingId(null);
-  }
-};
-
-
-  const propertiesPerPage = 8;
-  const [currentPage, setCurrentPage] = useState(1);
-
-  // Calculate total pages
-  const totalPages = Math.ceil(filtered.length / propertiesPerPage);
-
-  // Get paginated data
-  const indexOfLastProperty = currentPage * propertiesPerPage;
-  const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
-  const currentProperties = filtered.slice(
-    indexOfFirstProperty,
-    indexOfLastProperty
-  );
-
+  // Filter logic
   const handleFilterChange = (filters: Filters) => {
-    const filteredResults = availableproperties.filter((p) => {
+    const filteredResults = availableProperties.filter((p) => {
+      const priceValue = parseInt(p.price.replace(/\D/g, ""));
       return (
         (!filters.estate || p.estate === filters.estate) &&
         (!filters.landSize || p.landSize === parseInt(filters.landSize)) &&
         (!filters.bedroom || p.bedroom === parseInt(filters.bedroom)) &&
         (!filters.houseType || p.houseType === filters.houseType) &&
         (!filters.price ||
-          (filters.price === "5" &&
-            parseInt(p.price.replace(/\D/g, "")) < 5000000) ||
+          (filters.price === "5" && priceValue < 5000000) ||
           (filters.price === "8" &&
-            parseInt(p.price.replace(/\D/g, "")) >= 5000000 &&
-            parseInt(p.price.replace(/\D/g, "")) <= 8000000) ||
-          (filters.price === "10" &&
-            parseInt(p.price.replace(/\D/g, "")) > 8000000))
+            priceValue >= 5000000 &&
+            priceValue <= 8000000) ||
+          (filters.price === "10" && priceValue > 8000000))
       );
     });
 
     setFiltered(filteredResults);
+    setCurrentPage(1); // Reset to first page on filter
   };
+
+  // Paginated data
+  const indexOfLastProperty = currentPage * propertiesPerPage;
+  const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
+  const currentProperties = filtered.slice(
+    indexOfFirstProperty,
+    indexOfLastProperty
+  );
+  const totalPages = Math.ceil(filtered.length / propertiesPerPage);
+
+  // Memoized most viewed
+  const mostViewed = useMemo(() => {
+    return [...availableProperties]
+      .sort((a, b) => b.views - a.views)
+      .slice(0, 2);
+  }, [availableProperties]);
 
   return (
     <main>
       <Navbar />
 
+      {/* Breadcrumb */}
       <section className="page-route">
         <div className="back">
           <Link href="/" className="left-back">
             <ArrowLeft className="w-8 h-6 ml-1 left" />
           </Link>
         </div>
-
         <div className="route-path">
           <Link href="/" className="route-border-only">
             Home
           </Link>
-          <Link href="">
-            <ChevronRight className="w-6 h-6 ml-1 right" />
-          </Link>
+          <ChevronRight className="w-6 h-6 ml-1 right" />
           <Link href="/pages/properties" className="route-border-only">
             Properties
           </Link>
         </div>
       </section>
 
+      {/* Header */}
       <section className="land-list-header">
         <h2>Available Lands for Sale</h2>
         <p>
@@ -145,11 +144,14 @@ const handleDeleteProperty = async (id: number) => {
         </p>
       </section>
 
+      {/* Main Listing */}
       <section className="land-listing-container">
         <div className="property-section">
           <div className="property-section__filter">
             <PropertyFilter onFilterChange={handleFilterChange} />
           </div>
+
+          {/* Most Viewed */}
           <div className="property-section__popular-list">
             <h4>Most Viewed Properties</h4>
             <div className="most-viewed-container">
@@ -166,22 +168,20 @@ const handleDeleteProperty = async (id: number) => {
                         />
                       )}
                     </div>
-
                     <div className="attribute">
                       <div className="icon-value-container">
                         <Image
                           src="/land-size.webp"
-                          alt={`Land size of ${property.landSize} square meters`}
+                          alt="Land size"
                           width={20}
                           height={20}
                         />
                         <span>{property.landSize} sqm</span>
                       </div>
-
                       <div className="icon-value-container">
                         <Image
                           src="/bedroom.webp"
-                          alt={`${property.bedroom}-bedroom property`}
+                          alt="Bedrooms"
                           width={20}
                           height={20}
                         />
@@ -211,17 +211,20 @@ const handleDeleteProperty = async (id: number) => {
             </div>
           </div>
         </div>
+
+        {/* Pagination & Listing */}
         <div className="property-pagination">
-          <div className="add-new-property">
-            {userRole === "admin" && (
-            <Link href="/pages/create-property-form">
-              <button className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                <PlusCircle size={20} />
-                Add Property
-              </button>
-            </Link>
-            )}
-          </div>
+          {userRole === "admin" && (
+            <div className="add-new-property">
+              <Link href="/pages/create-property-form">
+                <button className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                  <PlusCircle size={20} />
+                  Add Property
+                </button>
+              </Link>
+            </div>
+          )}
+
           <div
             className={`land-listings ${
               filtered.length === 0 ? "full-grid" : ""
@@ -244,13 +247,20 @@ const handleDeleteProperty = async (id: number) => {
                 </div>
               ) : (
                 currentProperties.map((property) => (
-                  <PropertyCard key={property.id} property={property} onDelete={handleDeleteProperty} deletingId={deletingId}
-
- />
+                  <Link href={`/properties/${property.id}`} key={property.id}>
+                  <PropertyCard
+                    key={property.id}
+                    property={property}
+                    onDelete={handleDeleteProperty}
+                    deletingId={deletingId}
+                  />
+                  </Link>
                 ))
               )}
             </div>
           </div>
+
+          {/* Pagination Controls */}
           {totalPages > 1 && (
             <div className="pagination-controls">
               <button

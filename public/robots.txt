@@ -1,9 +1,6 @@
-# *
+# Allow all crawlers full access
 User-agent: *
 Allow: /
 
-# Host
-Host: https://yesha-realty.vercel.app/
-
-# Sitemaps
-Sitemap: https://yesha-realty.vercel.app/sitemap.xml
+# Sitemap location
+Sitemap: https://www.yesharealty.com/sitemap.xml
