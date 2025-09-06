@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import AgentCard from '@/app/components/agent-card';
 import { Agent } from "@/types/agent";
