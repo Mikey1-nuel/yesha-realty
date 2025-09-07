@@ -13,7 +13,7 @@ import MobilePropertyFilter from "@/app/components/mobille-property-filter";
 import PropertyFilter from "@/app/components/property-filter";
 import "../style/properties.css";
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "Luxury Homes in Abuja | Yesha Realty Real Estate",
   description:
     "Browse premium listings in Abuja with Yesha Realty. Smart homes, affordable prices, expert agents.",

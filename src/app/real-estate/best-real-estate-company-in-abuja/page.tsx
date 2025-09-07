@@ -12,7 +12,7 @@ import LeadCaptureForm from "../lead-capture-form/page";
 import NeighborhoodHighlights from "../neighborhood-highlights/page";
 import AgentSpotlight from "../agent-spotlight/page";
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "Luxury Homes in Abuja | Yesha Realty Real Estate",
   description:
     "Browse premium listings in Abuja with Yesha Realty. Smart homes, affordable prices, expert agents.",
