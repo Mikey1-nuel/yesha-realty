@@ -4,3 +4,4 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://yesha-realty.vercel.app/sitemap.xml
+
