@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Yesha Realty Real Estate",
-  description: "Trusted real estate company in Nigeria. Explore verified plots, smart homes, and prime locations.",
+  description: "Trusted real estate company in Abuja. Explore verified plots, smart homes, and prime locations.",
   openGraph: {
     title: "Yesha Realty Real Estate",
-    description: "Trusted real estate company in Nigeria. Explore verified plots, smart homes, and prime locations.",
+    description: "Trusted real estate company in Abuja. Explore verified plots, smart homes, and prime locations.",
     images: [
       {
         url: "https://yesha-reality-backend-staging.up.railway.app/IMG-20250728-WA0001.JPG",

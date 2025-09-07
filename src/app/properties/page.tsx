@@ -1,4 +1,5 @@
 "use client";
+import { Metadata } from "next";
 import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,6 +12,36 @@ import PropertyCard from "@/app/components/property-card";
 import MobilePropertyFilter from "@/app/components/mobille-property-filter";
 import PropertyFilter from "@/app/components/property-filter";
 import "../style/properties.css";
+
+export const metadata: Metadata = {
+  title: "Luxury Homes in Abuja | Yesha Realty Real Estate",
+  description:
+    "Browse premium listings in Abuja with Yesha Realty. Smart homes, affordable prices, expert agents.",
+  openGraph: {
+    title: "Luxury Homes in Abuja | Yesha Realty",
+    description:
+      "Browse premium listings in Abuja with Yesha Realty. Smart homes, affordable prices, expert agents.",
+    images: [
+      {
+        url: "https://yesha-reality-backend-staging.up.railway.app/IMG-20250728-WA0001.JPG",
+        width: 1200,
+        height: 630,
+        alt: "Yesha Realty Featured Property",
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+};
 
 const Properties = () => {
   const [availableProperties, setAvailableProperties] = useState<Property[]>(
