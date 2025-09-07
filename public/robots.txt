@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.yesharealty.com/sitemap.xml
+Sitemap: https://yesha-realty.vercel.app/sitemap.xml

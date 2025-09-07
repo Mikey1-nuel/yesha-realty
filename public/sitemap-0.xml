@@ -7,49 +7,49 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
   <url>
-    <loc>https://www.yesharealty.com</loc>
+    <loc>https://yesha-realty.vercel.app</loc>
     <lastmod>2024-09-06T12:00:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.yesharealty.com/pages/contact-us</loc>
+    <loc>https://yesha-realty.vercel.app/pages/contact-us</loc>
     <lastmod>2024-09-06T12:00:00Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://www.yesharealty.com/pages/create-property-form</loc>
+    <loc>https://yesha-realty.vercel.app/pages/create-property-form</loc>
     <lastmod>2024-09-06T12:00:00Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://www.yesharealty.com/pages/real-estate-agent-registration-form</loc>
+    <loc>https://yesha-realty.vercel.app/pages/real-estate-agent-registration-form</loc>
     <lastmod>2024-09-06T12:00:00Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://www.yesharealty.com/pages/our-story</loc>
+    <loc>https://yesha-realty.vercel.app/pages/our-story</loc>
     <lastmod>2024-09-06T12:00:00Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://www.yesharealty.com/pages/real-estate-agent-registration</loc>
+    <loc>https://yesha-realty.vercel.app/pages/real-estate-agent-registration</loc>
     <lastmod>2024-09-06T12:00:00Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://www.yesharealty.com/properties</loc>
+    <loc>https://yesha-realty.vercel.app/properties</loc>
     <lastmod>2024-09-06T12:00:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
