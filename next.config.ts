@@ -7,14 +7,6 @@ const nextConfig: NextConfig = {
       "yesha-reality-backend-staging.up.railway.app",
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/sitemap.xml",
-        destination: "/api/sitemap",
-      },
-    ];
-  },
 };
 
 export default nextConfig;

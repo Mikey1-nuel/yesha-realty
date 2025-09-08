@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yesha Realty Real Estate",
+  title: {
+    default: "Yesha Realty Real Estate Company in Abuja",
+    template: "%s - Yesha Realty Real Estate Company in Abuja"
+  },
   description: "Trusted real estate company in Abuja. Explore verified plots, smart homes, and prime locations.",
   openGraph: {
     title: "Yesha Realty Real Estate",
@@ -43,9 +46,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>

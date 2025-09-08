@@ -1,9 +1,9 @@
-// src/app/properties/page.tsx
+// src/app/landing/page.tsx
 import type { Metadata } from "next";
-import PropertiesClient from "./properties-client";
+import LandingHeroSection from "./landinghero-section";
 
 export const metadata: Metadata = {
-  title: "Yesha Reality Properties",
+  title: "Real Estate Company in Abuja Nigeria",
   description:
     "Browse premium listings in Abuja with Yesha Realty. Smart homes, affordable prices, expert agents.",
   openGraph: {
@@ -32,6 +32,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PropertiesPage() {
-  return <PropertiesClient />;
+export default function LandingPage() {
+  return <LandingHeroSection />;
 }
