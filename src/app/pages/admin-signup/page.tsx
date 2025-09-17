@@ -99,9 +99,9 @@ export default function AdminSignup() {
             Sign Up
           </button>
 
-          <div className="already-account">
+          <div className="no-account">
             <p>Already have an account?</p>
-            <a href="/admin/login">Login</a>
+            <a href="/pages/admin-login">Log In</a>
           </div>
         </form>
       </div>

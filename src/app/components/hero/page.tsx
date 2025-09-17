@@ -33,9 +33,9 @@ export default function Hero() {
               "@context": "https://schema.org",
               "@type": "RealEstateAgent",
               name: "Yesha Realty",
-              url: "https://yourdomain.com",
-              logo: "https://yourdomain.com/logo.png", // update with your logo URL
-              image: "https://yourdomain.com/IMG-20250728-WA0000.jpg", // pick a hero image
+              url: "https://www.yesharealty.com",
+              logo: "https://www.yesharealty.com/logo.png", // update with your logo URL
+              image: "https://www.yesharealty.com/IMG-20250728-WA0000.jpg", // pick a hero image
               description:
                 "Secure your future with verified plots in prime locations. Let your journey to homeownership begin today.",
               address: {

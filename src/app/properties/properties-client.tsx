@@ -165,7 +165,7 @@ export default function PropertiesClient() {
                     </div>
                     <div className="land-info-desc">
                       <p><strong>{property.estate}</strong></p>
-                      <p>{property.bedroom} bedroom {property.houseType} in {property.estate} estate, {property.location}</p>
+                      <p>{property.bedroom} bedroom {property.houseType} in {property.estate}, {property.location}</p>
                     </div>
                   </div>
                 </div>
