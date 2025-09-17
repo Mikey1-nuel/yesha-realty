@@ -15,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const properties = await response.json();
 
     entries = properties.map((property: { id: number; updatedAt?: string }) => ({
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/properties/${property.id}`,
+      url: `${process.env.SITE_URL}/properties/${property.id}`,
       lastModified: property.updatedAt ? new Date(property.updatedAt) : new Date(),
     }));
   } catch (error) {
@@ -24,16 +24,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/properties`,
+      url: `${process.env.SITE_URL}/properties`,
       lastModified: new Date(),
     },
     ...entries,
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/real-estate`,
+      url: `${process.env.SITE_URL}/real-estate`,
       lastModified: new Date(),
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/pages/real-estate-agent-registration`,
+      url: `${process.env.SITE_URL}/pages/real-estate-agent-registration`,
       lastModified: new Date(),
     },
   ];
