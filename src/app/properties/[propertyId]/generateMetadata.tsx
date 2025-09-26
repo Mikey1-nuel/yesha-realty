@@ -287,7 +287,7 @@ export default function PropertyDetailsClient() {
                         <strong>{p.estate}</strong>
                       </p>
                       <p>
-                        {p.bedroom} bedroom {p.houseType} in {p.estate} estate,{" "}
+                        {p.bedroom} bedroom {p.houseType} in {p.estate},{" "}
                         {p.location}
                       </p>
                     </div>
@@ -301,13 +301,13 @@ export default function PropertyDetailsClient() {
         <div className="property-details">
           <Image
             className="prop-img"
-            src={`https://yesha-reality-backend-staging.up.railway.app${property.image}`}
+            src={property.image}
             alt={`${property.bedroom}-bedroom ${property.houseType} in ${property.location}, ${property.landSize} sqm`}
             width={350}
             height={50}
           />
           <h1 className="details-header">
-            {`${property.bedroom} bedroom ${property.houseType} in ${property.estate} estate, ${property.location}`}
+            {`${property.bedroom} bedroom ${property.houseType} in ${property.estate}, ${property.location}`}
           </h1>
           {userRole === "admin" && (
             <button
