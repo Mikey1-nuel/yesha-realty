@@ -301,7 +301,8 @@ export default function PropertyDetailsClient() {
         <div className="property-details">
           <Image
             className="prop-img"
-            src={property.image}
+            src={`https://yesha-reality-backend-staging.up.railway.app${property.image}`}
+            // src={property.image}
             alt={`${property.bedroom}-bedroom ${property.houseType} in ${property.location}, ${property.landSize} sqm`}
             width={350}
             height={50}

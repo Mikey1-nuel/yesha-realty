@@ -59,7 +59,8 @@ export async function generateMetadata(
       description: property.description || "Explore this premium listing in Abuja.",
       images: [
         {
-          url: `${property.image}`,
+          url: `https://yesha-reality-backend-staging.up.railway.app${property.image}`,
+          // url: `${property.image}`,
           width: 1200,
           height: 630,
           alt: "Property image",
