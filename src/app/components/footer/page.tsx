@@ -12,7 +12,7 @@ const Footer = () => {
     const emailInput = form.elements.namedItem("email") as HTMLInputElement; 
     const email = emailInput.value;
 
-    await fetch("http://localhost:8080/api/subscribe", {
+    await fetch("https://yesha-reality-backend-staging.up.railway.app/api/subscribe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
