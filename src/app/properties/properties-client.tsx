@@ -15,7 +15,9 @@ import PropertyFilter from "@/app/components/property-filter";
 import "../style/properties.css";
 
 export default function PropertiesClient() {
-  const [availableProperties, setAvailableProperties] = useState<Property[]>([]);
+  const [availableProperties, setAvailableProperties] = useState<Property[]>(
+    [],
+  );
   const [filtered, setFiltered] = useState<Property[]>([]);
   const [userRole, setUserRole] = useState<string | null>(null);
   const [deletingId, setDeletingId] = useState<number | null>(null);
@@ -32,7 +34,8 @@ export default function PropertiesClient() {
       .then((res) => res.json())
       .then((data: Property[]) => {
         const sortedData = [...data].sort(
-          (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+          (a, b) =>
+            new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
         );
         setAvailableProperties(sortedData);
         setFiltered(sortedData);
@@ -45,7 +48,7 @@ export default function PropertiesClient() {
     try {
       const res = await fetch(
         `https://yesha-reality-backend-staging.up.railway.app/properties/${id}`,
-        { method: "DELETE" }
+        { method: "DELETE" },
       );
 
       if (!res.ok) {
@@ -79,7 +82,9 @@ export default function PropertiesClient() {
         (!filters.houseType || p.houseType === filters.houseType) &&
         (!filters.price ||
           (filters.price === "5" && priceValue < 5000000) ||
-          (filters.price === "8" && priceValue >= 5000000 && priceValue <= 8000000) ||
+          (filters.price === "8" &&
+            priceValue >= 5000000 &&
+            priceValue <= 8000000) ||
           (filters.price === "10" && priceValue > 8000000))
       );
     });
@@ -90,11 +95,16 @@ export default function PropertiesClient() {
 
   const indexOfLastProperty = currentPage * propertiesPerPage;
   const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
-  const currentProperties = filtered.slice(indexOfFirstProperty, indexOfLastProperty);
+  const currentProperties = filtered.slice(
+    indexOfFirstProperty,
+    indexOfLastProperty,
+  );
   const totalPages = Math.ceil(filtered.length / propertiesPerPage);
 
   const mostViewed = useMemo(() => {
-    return [...availableProperties].sort((a, b) => b.views - a.views).slice(0, 2);
+    return [...availableProperties]
+      .sort((a, b) => b.views - a.views)
+      .slice(0, 2);
   }, [availableProperties]);
 
   return (
@@ -108,9 +118,13 @@ export default function PropertiesClient() {
           </Link>
         </div>
         <div className="route-path">
-          <Link href="/" className="route-border-only">Home</Link>
+          <Link href="/" className="route-border-only">
+            Home
+          </Link>
           <ChevronRight className="w-6 h-6 ml-1 right" />
-          <Link href="/pages/properties" className="route-border-only">Properties</Link>
+          <Link href="/pages/properties" className="route-border-only">
+            Properties
+          </Link>
         </div>
       </section>
 
@@ -150,23 +164,40 @@ export default function PropertiesClient() {
                     </div>
                     <div className="attribute">
                       <div className="icon-value-container">
-                        <Image src="/land-size.webp" alt="Land size" width={20} height={20} />
+                        <Image
+                          src="/land-size.webp"
+                          alt="Land size"
+                          width={20}
+                          height={20}
+                        />
                         <span>{property.landSize} sqm</span>
                       </div>
                       <div className="icon-value-container">
-                        <Image src="/bedroom.webp" alt="Bedrooms" width={20} height={20} />
+                        <Image
+                          src="/bedroom.webp"
+                          alt="Bedrooms"
+                          width={20}
+                          height={20}
+                        />
                         <span>{property.bedroom}</span>
                       </div>
                     </div>
                   </div>
                   <div className="land-info">
                     <div className="house-type-price">
-                      <h3>{property.bedroom} Bedroom {property.houseType}</h3>
+                      <h3>
+                        {property.bedroom} Bedroom {property.houseType}
+                      </h3>
                       <span>₦{Number(property.price).toLocaleString()}</span>
                     </div>
                     <div className="land-info-desc">
-                      <p><strong>{property.estate}</strong></p>
-                      <p>{property.bedroom} bedroom {property.houseType} in {property.estate}, {property.location}</p>
+                      <p>
+                        <strong>{property.estate}</strong>
+                      </p>
+                      <p>
+                        {property.bedroom} bedroom {property.houseType} in{" "}
+                        {property.estate}, {property.location}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -181,7 +212,7 @@ export default function PropertiesClient() {
             <div className="add-new-property">
               <Link href="/pages/create-property-form">
                 <button className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                                    <PlusCircle size={20} />
+                  <PlusCircle size={20} />
                   Add Property
                 </button>
               </Link>
@@ -210,13 +241,11 @@ export default function PropertiesClient() {
                 </div>
               ) : (
                 currentProperties.map((property) => (
-                  <Link href={`/properties/${property.id}`} key={property.id}>
-                    <PropertyCard
-                      property={property}
-                      onDelete={handleDeleteProperty}
-                      deletingId={deletingId}
-                    />
-                  </Link>
+                  <PropertyCard
+                    property={property}
+                    onDelete={handleDeleteProperty}
+                    deletingId={deletingId}
+                  />
                 ))
               )}
             </div>

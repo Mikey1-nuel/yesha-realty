@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Trash2 } from "lucide-react";
 import { Property } from "@/types/property";
 import "../style/properties.css";
@@ -29,6 +30,7 @@ const PropertyCard = ({
 
   return (
     <div className="land-card" key={property.id}>
+      <Link href={`/properties/${property.id}`} key={property.id}>
       <div className="img-et-attribute">
         <div className="land-img">
           {property.image ? (
@@ -100,6 +102,7 @@ const PropertyCard = ({
           </p>
         </div>
       </div>
+      </Link>
       {userRole === "admin" && (
         <Trash2
           size={24}
