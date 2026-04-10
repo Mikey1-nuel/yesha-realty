@@ -1,23 +1,61 @@
-'use client'
+"use client";
 import React from "react";
 import "../../style/footer.css";
 import Image from "next/image";
 import Link from "next/link";
+import toast from "react-hot-toast";
 import { FaTiktok, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   async function handleSubscribe(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget; 
-    const emailInput = form.elements.namedItem("email") as HTMLInputElement; 
+    const form = e.currentTarget;
+    const emailInput = form.elements.namedItem("email") as HTMLInputElement;
     const email = emailInput.value;
 
-    await fetch("https://yesha-reality-backend-staging.up.railway.app/api/subscribe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
+    try {
+      const response = await fetch(
+        "https://yesha-reality-backend-staging.up.railway.app/api/subscribe",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        },
+      );
+
+      if (response.ok) {
+        toast.success(
+          "✅ Subscription successful! Thank you for subscribing.",
+          {
+            style: {
+              borderRadius: "8px",
+              background: "#333",
+              color: "#fff",
+            },
+          },
+        );
+        form.reset(); // clears the input field
+      } else {
+        toast.success("⚠️ Subscription failed. Please try again.", {
+          style: {
+            borderRadius: "8px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      toast.success("❌ An error occurred. Please try again later.", {
+        style: {
+          borderRadius: "8px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
   }
+
   return (
     <footer className="footer">
       <div className="footer-container">
