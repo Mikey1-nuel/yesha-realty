@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     domains: [
       "localhost",
       "yesha-reality-backend-staging.up.railway.app",
+      "res.cloudinary.com",
     ],
   },
 };

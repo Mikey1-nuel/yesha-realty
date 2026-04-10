@@ -33,7 +33,7 @@ const PropertyCard = ({
         <div className="land-img">
           {property.image ? (
             <Image
-              src={`https://yesha-reality-backend-staging.up.railway.app${property.image}`}
+              src={property.image}
               // src={property.image}
               alt={`${property.bedroom}-bedroom ${property.houseType} for sale at ${property.estate}, ${property.location} - ${property.landSize} - Price ${property.price}`}
               width={400}

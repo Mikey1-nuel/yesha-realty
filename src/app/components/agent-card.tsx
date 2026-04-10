@@ -31,7 +31,7 @@ const AgentCard = ({ agent, onDelete, deletingId }: AgentCardProps) => {
         <div className="agent-img">
           {agent.image ? (
             <Image
-              src={`https://yesha-reality-backend-staging.up.railway.app${agent.image}`}
+              src={agent.image}
               alt={`Real estate agent ${agent.fullName} based in ${agent.state}`}
               width={500}
               height={310}

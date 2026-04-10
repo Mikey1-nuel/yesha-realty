@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import "../../style/footer.css";
 import Image from "next/image";
@@ -5,6 +6,18 @@ import Link from "next/link";
 import { FaTiktok, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
+  async function handleSubscribe(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget; 
+    const emailInput = form.elements.namedItem("email") as HTMLInputElement; 
+    const email = emailInput.value;
+
+    await fetch("http://localhost:8080/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+  }
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -69,8 +82,15 @@ const Footer = () => {
             insights.
           </p>
           <div className="newsletter-action">
-            <input type="email" placeholder="Enter your email" />
-            <button>Subscribe</button>
+            <form onSubmit={handleSubscribe}>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+              <button type="submit">Subscribe</button>
+            </form>
           </div>
         </div>
       </div>

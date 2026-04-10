@@ -17,7 +17,7 @@ const BecomeAnAgent = () => {
       .then((data) => {
         // Sort by most recent
         const sortedData = [...data].sort(
-          (a, b) => b.experience - a.experience
+          (a, b) => b.experience - a.experience,
         );
 
         setAvailableAgents(sortedData);
@@ -35,7 +35,7 @@ const BecomeAnAgent = () => {
         `https://yesha-reality-backend-staging.up.railway.app/agents/${id}`,
         {
           method: "DELETE",
-        }
+        },
       );
 
       if (!res.ok) {
@@ -47,7 +47,7 @@ const BecomeAnAgent = () => {
       console.log("Deleted agent:", await res.json());
 
       const updatedRes = await fetch(
-        "https://yesha-reality-backend-staging.up.railway.app/agents"
+        "https://yesha-reality-backend-staging.up.railway.app/agents",
       );
       const updatedData = await updatedRes.json();
       setAvailableAgents(updatedData);

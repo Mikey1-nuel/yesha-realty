@@ -38,6 +38,9 @@
     border-radius: 5px;
     color: #333;
     outline: none;
+}
+
+.form .input {
     text-transform: capitalize;
 }
 
