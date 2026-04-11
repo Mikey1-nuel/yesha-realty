@@ -242,6 +242,7 @@ export default function PropertiesClient() {
               ) : (
                 currentProperties.map((property) => (
                   <PropertyCard
+                    key={property.id}
                     property={property}
                     onDelete={handleDeleteProperty}
                     deletingId={deletingId}
