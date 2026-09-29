@@ -67,11 +67,9 @@ export default function AgentSpotlight() {
         >
           {filtered.length === 0 ? (
             <div className="not-found">
-              <p>No matching properties found.</p>
+              <p>No real estate agents found</p>
               <span>
-                It looks like there are no properties matching your current
-                search criteria. Please try adjusting your filters or clear them
-                to see all available properties.
+                There are currently no agents available. Please check back later.
               </span>
             </div>
           ) : (
